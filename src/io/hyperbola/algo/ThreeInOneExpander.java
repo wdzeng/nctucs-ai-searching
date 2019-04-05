@@ -1,6 +1,5 @@
 package io.hyperbola.algo;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
 import io.hyperbola.base.Assignment;
 import io.hyperbola.base.Variable;
@@ -26,8 +25,8 @@ import static io.hyperbola.algo.MinimumRemainingValueExpander.MINIMUM_REMAINING_
  */
 public abstract class ThreeInOneExpander implements Expander {
 
-    public static final boolean MRV_DGH_LCV = false;
     public static final boolean DGH_MRV_LCV = true;
+    public static final boolean MRV_DGH_LCV = false;
     private Filterer<Variable> first, second;
 
     public ThreeInOneExpander(boolean policy) {
@@ -36,20 +35,20 @@ public abstract class ThreeInOneExpander implements Expander {
     }
 
     @Override
-    public List<Assignment> assign(Node successor) {
-        Collection<Variable> unassignedVars = successor.getUnassignedVariables();
+    public List<Assignment> assign(AbstractNode successor) {
+        Collection<Variable> unassignedVars = successor.peekUnassignedVariables();
         Variable elect = new LayerFilterer<Variable>().then(first)       // Step (1)
                                                       .then(second)      // Step (2)
                                                       .then(findElect()) // Step (3)
                                                       .select(unassignedVars, successor);
         if (elect == null) return List.of();
         // Step (4)
-        List<String> wordCandidates = successor.getDomainOf(elect);
+        List<String> wordCandidates = successor.peekDomainOf(elect);
         List<String> wordsInLcvOrder = lcv(elect, wordCandidates, successor, randomSort());
         return Expander.matchWords(elect, wordsInLcvOrder, randomSort());
     }
 
-    protected abstract boolean randomSort();
-
     protected abstract Selector<Variable> findElect();
+
+    protected abstract boolean randomSort();
 }

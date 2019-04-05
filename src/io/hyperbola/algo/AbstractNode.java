@@ -3,8 +3,6 @@ import java.util.*;
 import io.hyperbola.base.Dictionary;
 import io.hyperbola.base.*;
 import static io.hyperbola.base.Variable.HORIZONTAL;
-import static java.util.List.copyOf;
-import static java.util.Map.copyOf;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -34,10 +32,15 @@ public abstract class AbstractNode implements Node {
     protected static Map<Variable, List<String>> createRootVarDomainMap(VariableSurveyResult varSet,
                                                                         Dictionary dictionary) {
         Map<Variable, List<String>> initMap = new HashMap<>(varSet.variables.size());
-        for (Variable v: varSet.variables) {
-            initMap.put(v, dictionary.getWordsByLength(v.length()));
-        }
+        for (Variable v: varSet.variables) initMap.put(v, dictionary.getWordsByLength(v.length()));
         return initMap;
+    }
+
+    protected static Map<Variable, List<Variable>> createRootVarNeighborsMap(VariableSurveyResult varSet) {
+        Collection<Variable> vars = varSet.variables;
+        Map<Variable, List<Variable>> map = new HashMap<>(vars.size());
+        for (Variable v: vars) map.put(v, v.getNeighbors());
+        return map;
     }
 
     /**
@@ -88,13 +91,6 @@ public abstract class AbstractNode implements Node {
         }
     }
 
-    protected static Map<Variable, List<Variable>> createRootVarNeighborsMap(VariableSurveyResult varSet) {
-        Collection<Variable> vars = varSet.variables;
-        Map<Variable, List<Variable>> map = new HashMap<>(vars.size());
-        for (Variable v: vars) map.put(v, v.getNeighbors());
-        return map;
-    }
-
     @Override
     public abstract AbstractNode expand(Assignment assignment);
 
@@ -129,7 +125,7 @@ public abstract class AbstractNode implements Node {
 
     @Override
     public final boolean isSolution() {
-        return getUnassignedVariableDomainMap().isEmpty();
+        return peekUnassignedVariableDomainMap().isEmpty();
     }
 
     /**
@@ -141,4 +137,42 @@ public abstract class AbstractNode implements Node {
      * Queries the width of the board
      */
     protected abstract int getBoardWidth();
+
+    protected final int peekCountOfUnassignedNeighborsOf(Variable variable) {
+        return peekUnassignedNeighborsOf(variable).size();
+    }
+
+    /**
+     * Queries the domain of a given unassigned variable.
+     * @return the domain; or null if the variable is already assigned.
+     */
+    protected final List<String> peekDomainOf(Variable variable) {
+        assert peekUnassignedVariableDomainMap().containsKey(variable);
+        return peekUnassignedVariableDomainMap().get(variable);
+    }
+
+    protected final int peekDomainSizeOf(Variable variable) {
+        return peekDomainOf(variable).size();
+    }
+
+    protected final List<Variable> peekUnassignedNeighborsOf(Variable variable) {
+        return peekUnassignedVariableNeighborsMap().get(variable);
+    }
+
+    /**
+     * Queries the variable-domain map.
+     */
+    protected abstract Map<Variable, List<String>> peekUnassignedVariableDomainMap();
+
+    /**
+     * Queries the variable-neighbors map.
+     */
+    protected abstract Map<Variable, List<Variable>> peekUnassignedVariableNeighborsMap();
+
+    /**
+     * Queries all unassigned variables.
+     */
+    protected final Set<Variable> peekUnassignedVariables() {
+        return peekUnassignedVariableDomainMap().keySet();
+    }
 }

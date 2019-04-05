@@ -1,12 +1,12 @@
 package io.hyperbola.stream;
 import java.util.Collection;
 import java.util.List;
-import io.hyperbola.algo.Node;
+import io.hyperbola.algo.AbstractNode;
 
 public class LayerFilterer<T> implements Filterer<T> {
 
-    private Filterer<T> prev;
     private Filterer<T> filterer;
+    private Filterer<T> prev;
 
     public LayerFilterer() {
         this.prev = null;
@@ -18,21 +18,21 @@ public class LayerFilterer<T> implements Filterer<T> {
         this.filterer = filterer;
     }
 
-    public LayerFilterer<T> then(Filterer<T> filterer) {
-        if (this.filterer == null) {
-            this.filterer = filterer;
-            return this;
-        }
-        return new LayerFilterer<>(filterer, this);
+    @Override
+    public List<T> filterFrom(Collection<T> candidates, AbstractNode successor) {
+        if (prev != null) candidates = prev.filter(candidates, successor);
+        return filterer.filter(candidates, successor);
     }
 
     public Selector<T> then(Selector<T> selector) {
         return (candidates, successor) -> selector.select(this.filter(candidates, successor), successor);
     }
 
-    @Override
-    public List<T> filterFrom(Collection<T> candidates, Node successor) {
-        if (prev != null) candidates = prev.filter(candidates, successor);
-        return filterer.filter(candidates, successor);
+    public LayerFilterer<T> then(Filterer<T> filterer) {
+        if (this.filterer == null) {
+            this.filterer = filterer;
+            return this;
+        }
+        return new LayerFilterer<>(filterer, this);
     }
 }

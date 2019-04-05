@@ -1,5 +1,4 @@
 package io.hyperbola.algo;
-import java.util.Comparator;
 import io.hyperbola.base.Variable;
 import io.hyperbola.stream.Selector;
 
@@ -10,12 +9,12 @@ public class RandomThreeInOneExpander extends ThreeInOneExpander {
     }
 
     @Override
-    protected boolean randomSort() {
-        return true;
+    protected Selector<Variable> findElect() {
+        return Selector.random();
     }
 
     @Override
-    protected Selector<Variable> findElect() {
-        return Selector.random();
+    protected boolean randomSort() {
+        return true;
     }
 }

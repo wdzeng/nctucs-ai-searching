@@ -1,5 +1,7 @@
 package io.hyperbola.algo;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import io.hyperbola.base.Assignment;
 import io.hyperbola.base.Board;
 import io.hyperbola.base.Variable;
@@ -43,7 +45,10 @@ public interface Node {
         Assignment a;
         while (n != null) {
             a = n.getAssignment();
-            if (a.variable == variable) return a.word;
+            if (a.variable == variable) {
+                // Found
+                return a.word;
+            }
             n = n.getSuccessor();
         }
         return null;
@@ -59,51 +64,15 @@ public interface Node {
      */
     Board getBoard();
 
-    default int getCountOfUnassignedNeighborsOf(Variable variable) {
-        return getUnassignedNeighborsOf(variable).size();
-    }
-
-    /**
-     * Queries the domain of a given unassigned variable.
-     * @return the domain; or null if the variable is already assigned.
-     */
-    default List<String> getDomainOf(Variable variable) {
-        return getUnassignedVariableDomainMap().get(variable);
-    }
-
-    default int getDomainSizeOf(Variable variable) {
-        return getDomainOf(variable).size();
-    }
-
     /**
      * Queries the successor of this node
      * @return the successor; or null if this node is a root node
      */
     Node getSuccessor();
 
-    default List<Variable> getUnassignedNeighborsOf(Variable variable) {
-        return getUnassignedVariableNeighborsMap().get(variable);
-    }
-
-    /**
-     * Queries the variable-domain map.
-     */
-    Map<Variable, List<String>> getUnassignedVariableDomainMap();
-
-    Map<Variable, List<Variable>> getUnassignedVariableNeighborsMap();
-
-    /**
-     * Queries all unassigned variables.
-     */
-    default Set<Variable> getUnassignedVariables() {
-        return getUnassignedVariableDomainMap().keySet();
-    }
-
     /**
      * Queries if this node represents a solution, that is, if all variables are assigned.
      * @return true it this node represents a solution
      */
-    default boolean isSolution() {
-        return getUnassignedVariableDomainMap().isEmpty();
-    }
+    boolean isSolution();
 }

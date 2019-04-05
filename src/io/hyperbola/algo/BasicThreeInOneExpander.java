@@ -9,12 +9,12 @@ public class BasicThreeInOneExpander extends ThreeInOneExpander {
     }
 
     @Override
-    protected boolean randomSort() {
-        return false;
+    protected Selector<Variable> findElect() {
+        return Selector.ORIGIN_CLOSEST_SELECTOR;
     }
 
     @Override
-    protected Selector<Variable> findElect() {
-        return Selector.ORIGIN_CLOSEST_SELECTOR;
+    protected boolean randomSort() {
+        return false;
     }
 }

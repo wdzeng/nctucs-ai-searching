@@ -1,7 +1,6 @@
 package io.hyperbola.algo;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
 import io.hyperbola.base.Assignment;
 import io.hyperbola.base.Variable;
@@ -25,7 +24,7 @@ public abstract class DegreeHeuristicExpander implements Expander {
         int max = -1, nUnassignedNeighbor;
         List<Variable> passed = new ArrayList<>();
         for (Variable v: candidates) {
-            nUnassignedNeighbor = successor.getCountOfUnassignedNeighborsOf(v);
+            nUnassignedNeighbor = successor.peekCountOfUnassignedNeighborsOf(v);
             if (nUnassignedNeighbor < max) {
                 continue;
             }
@@ -39,14 +38,14 @@ public abstract class DegreeHeuristicExpander implements Expander {
     };
 
     @Override
-    public final List<Assignment> assign(Node successor) {
+    public final List<Assignment> assign(AbstractNode successor) {
 
-        Collection<Variable> unassignedVars = successor.getUnassignedVariables();
+        Collection<Variable> unassignedVars = successor.peekUnassignedVariables();
         Variable elect = new LayerFilterer<Variable>().then(DEGREE_HEURISTIC_FILTER)      // Step (1)
                                                       .then(findElect())                  // Step (2)
                                                       .select(unassignedVars, successor);
         if (elect == null) return List.of();
-        return Expander.matchWords(elect, successor.getDomainOf(elect), randomSort());    // Step (3)
+        return Expander.matchWords(elect, successor.peekDomainOf(elect), randomSort());    // Step (3)
     }
 
     /** Step (2): Determines the only elected variable within candidates. */

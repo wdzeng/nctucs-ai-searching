@@ -13,12 +13,12 @@ import io.hyperbola.base.VariableSurveyResult;
 public class BasicNode extends AbstractNode {
 
     private final Assignment assignment;
+    private final boolean forwardCheck;
     private final List<Assignment> prevAssignments;
     private final BasicNode successor;
     private final Map<Variable, List<String>> unassigned;
     private final Map<Variable, List<Variable>> unassignedNeighbors;
     private final int wBoard, hBoard;
-    private final boolean forwardCheck;
 
     /**
      * Creates a root node. Dictionary must be given so that the variable-domain map can be built. Variable survey
@@ -66,21 +66,6 @@ public class BasicNode extends AbstractNode {
     }
 
     @Override
-    public BasicNode getSuccessor() {
-        return successor;
-    }
-
-    @Override
-    public Map<Variable, List<String>> getUnassignedVariableDomainMap() {
-        return unassigned;
-    }
-
-    @Override
-    public Map<Variable, List<Variable>> getUnassignedVariableNeighborsMap() {
-        return unassignedNeighbors;
-    }
-
-    @Override
     protected int getBoardHeight() {
         return hBoard;
     }
@@ -91,7 +76,22 @@ public class BasicNode extends AbstractNode {
     }
 
     @Override
+    public Map<Variable, List<String>> peekUnassignedVariableDomainMap() {
+        return unassigned;
+    }
+
+    @Override
+    public Map<Variable, List<Variable>> peekUnassignedVariableNeighborsMap() {
+        return unassignedNeighbors;
+    }
+
+    @Override
     public Assignment getAssignment() {
         return assignment;
+    }
+
+    @Override
+    public BasicNode getSuccessor() {
+        return successor;
     }
 }

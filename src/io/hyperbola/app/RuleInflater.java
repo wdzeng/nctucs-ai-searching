@@ -11,6 +11,19 @@ import static java.lang.Integer.parseInt;
 
 public class RuleInflater {
 
+    private static boolean dir(String s) {
+        switch (s.toUpperCase()) {
+        case "A":
+        case "H":
+            return Variable.HORIZONTAL;
+        case "D":
+        case "V":
+            return Variable.VERTICAL;
+        default:
+            throw new IllegalRuleException("Invalid direction: " + s);
+        }
+    }
+
     public static List<VariableSurveyResult> inflate(InputStream in) throws IOException {
         List<VariableSurveyResult> res = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(in))) {
@@ -31,19 +44,6 @@ public class RuleInflater {
                           dir(spliced[i + 3]));
         }
         return b.build();
-    }
-
-    private static boolean dir(String s) {
-        switch (s.toUpperCase()) {
-        case "A":
-        case "H":
-            return Variable.HORIZONTAL;
-        case "D":
-        case "V":
-            return Variable.VERTICAL;
-        default:
-            throw new IllegalRuleException("Invalid direction: " + s);
-        }
     }
 
     private RuleInflater() {}

@@ -7,11 +7,11 @@ import io.hyperbola.stream.Selector;
 public class BasicExpander implements Expander {
 
     @Override
-    public List<Assignment> assign(Node successor) {
-        Variable elect = Selector.ORIGIN_CLOSEST_SELECTOR.select(successor.getUnassignedVariables(), successor);
+    public List<Assignment> assign(AbstractNode successor) {
+        Variable elect = Selector.ORIGIN_CLOSEST_SELECTOR.select(successor.peekUnassignedVariables(), successor);
         if (elect == null) return List.of();
         return Expander.matchWords(elect,
-                                   successor.getDomainOf(elect),
+                                   successor.peekDomainOf(elect),
                                    false);
     }
 }

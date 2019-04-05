@@ -11,12 +11,12 @@ import io.hyperbola.base.Board;
 public class DepthFirstPuzzleIterator implements PuzzleIterator {
 
     private final Expander ea;
-    private final LinkedList<Node> stack = new LinkedList<>();
-    private Node currentNode = null;
+    private final LinkedList<AbstractNode> stack = new LinkedList<>();
+    private AbstractNode currentNode = null;
     private int maxSize = 0;
     private long step = 0;
 
-    public DepthFirstPuzzleIterator(Node root, Expander algorithm) {
+    public DepthFirstPuzzleIterator(AbstractNode root, Expander algorithm) {
         this.ea = algorithm;
         stack.add(Objects.requireNonNull(root));
     }
@@ -38,7 +38,7 @@ public class DepthFirstPuzzleIterator implements PuzzleIterator {
 
     @Override
     public int next() {
-        Node n;
+        AbstractNode n;
         try { n = stack.pop(); }
         // If the stack is empty, the searching is ended.
         catch (NoSuchElementException e) {
@@ -47,7 +47,7 @@ public class DepthFirstPuzzleIterator implements PuzzleIterator {
 
         step++;
         currentNode = n;
-        List<? extends Node> expanded = ea.expand(currentNode);
+        List<? extends AbstractNode> expanded = ea.expand(currentNode);
         if (expanded.isEmpty()) {
             return currentNode.isSolution()? SOLUTION: FAILURE;
         }

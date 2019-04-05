@@ -121,6 +121,16 @@ public class Ac3Node extends AbstractNode {
     }
 
     @Override
+    public Map<Variable, List<String>> peekUnassignedVariableDomainMap() {
+        return unassigned;
+    }
+
+    @Override
+    public Map<Variable, List<Variable>> peekUnassignedVariableNeighborsMap() {
+        return unassignedNeighbors;
+    }
+
+    @Override
     public Assignment getAssignment() {
         return assignment;
     }
@@ -128,15 +138,5 @@ public class Ac3Node extends AbstractNode {
     @Override
     public Ac3Node getSuccessor() {
         return successor;
-    }
-
-    @Override
-    public Map<Variable, List<String>> getUnassignedVariableDomainMap() {
-        return unassigned;
-    }
-
-    @Override
-    public Map<Variable, List<Variable>> getUnassignedVariableNeighborsMap() {
-        return unassignedNeighbors;
     }
 }

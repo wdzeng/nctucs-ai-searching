@@ -9,9 +9,9 @@ import io.hyperbola.base.Variable;
 public class RandomExpander implements Expander {
 
     @Override
-    public List<Assignment> assign(Node successor) {
-        Variable elected = Expander.randomSelect(successor.getUnassignedVariables());
+    public List<Assignment> assign(AbstractNode successor) {
+        Variable elected = Expander.randomSelect(successor.peekUnassignedVariables());
         if (elected == null) return List.of();
-        return Expander.matchWordsRandomly(elected, successor.getDomainOf(elected));
+        return Expander.matchWordsRandomly(elected, successor.peekDomainOf(elected));
     }
 }

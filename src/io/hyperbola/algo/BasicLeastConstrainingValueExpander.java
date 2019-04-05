@@ -1,5 +1,4 @@
 package io.hyperbola.algo;
-import java.util.Comparator;
 import io.hyperbola.base.Variable;
 import io.hyperbola.stream.Selector;
 

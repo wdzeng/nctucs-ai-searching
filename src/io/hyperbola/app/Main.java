@@ -25,12 +25,17 @@ public class Main {
         }
     }
 
+    private static void println(String s) {
+        System.out.println(s);
+        pw.println(s);
+    }
+
     private static void task(int dictCount, String outputPath, int varIndex, String title) throws IOException {
         List<VariableSurveyResult> resList
                 = RuleInflater.inflate(new FileInputStream("res/homework material/puzzle.txt"));
         VariableSurveyResult res = resList.get(varIndex);
 
-        Node node;
+        AbstractNode node;
         String testName;
         String path = "res/" + outputPath;
         File p = new File(path);
@@ -87,12 +92,7 @@ public class Main {
         pw.close();
     }
 
-    private static void println(String s) {
-        System.out.println(s);
-        pw.println(s);
-    }
-
-    private static void test(String title, Node root, Expander e) {
+    private static void test(String title, AbstractNode root, Expander e) {
         PuzzleIterator s = new DepthFirstPuzzleIterator(root, e);
         int solCount = 0;
         long start = System.currentTimeMillis();

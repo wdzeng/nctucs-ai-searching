@@ -1,7 +1,7 @@
 package io.hyperbola.stream;
 import java.util.ArrayList;
 import java.util.Collection;
-import io.hyperbola.algo.Node;
+import io.hyperbola.algo.AbstractNode;
 import io.hyperbola.base.Variable;
 import static java.util.Comparator.naturalOrder;
 
@@ -25,11 +25,11 @@ public interface Selector<T> {
         };
     }
 
-    T selectFrom(Collection<T> candidates, Node successor);
-
-    default T select(Collection<T> candidates, Node successor) {
+    default T select(Collection<T> candidates, AbstractNode successor) {
         if (candidates.isEmpty()) return null;
         else if (candidates.size() == 1) return candidates.stream().findFirst().get();
         return selectFrom(candidates, successor);
     }
+
+    T selectFrom(Collection<T> candidates, AbstractNode successor);
 }

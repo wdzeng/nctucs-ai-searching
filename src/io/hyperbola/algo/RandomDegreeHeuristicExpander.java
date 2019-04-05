@@ -1,7 +1,6 @@
 package io.hyperbola.algo;
-import java.util.Comparator;
-import io.hyperbola.stream.Selector;
 import io.hyperbola.base.Variable;
+import io.hyperbola.stream.Selector;
 
 /**
  * This algorithm tries to implement degree heuristic searching. It expands a node by the following steps:

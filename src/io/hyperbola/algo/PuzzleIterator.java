@@ -7,9 +7,9 @@ import io.hyperbola.base.Board;
 public interface PuzzleIterator {
 
     int FAILURE = 0;
+    int NONE = -2;
     int SOLUTION = 1;
     int UNKNOWN = -1;
-    int NONE = -2;
 
     /**
      * Queries the current board status.

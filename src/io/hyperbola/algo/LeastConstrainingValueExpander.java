@@ -28,7 +28,7 @@ public abstract class LeastConstrainingValueExpander implements Expander {
      */
     public static List<String> lcv(Variable elect,
                                    List<String> wordCandidates,
-                                   Node successor,
+                                   AbstractNode successor,
                                    boolean randomSort) {
         return lcv(elect, wordCandidates, successor, randomSort, false);
     }
@@ -44,12 +44,12 @@ public abstract class LeastConstrainingValueExpander implements Expander {
      */
     public static List<String> lcv(Variable elect,
                                    List<String> wordCandidates,
-                                   Node successor,
+                                   AbstractNode successor,
                                    boolean randomSort,
                                    boolean forwardCheck) {
 
         // Step (2): Find all neighbors
-        List<Variable> neighbors = successor.getUnassignedNeighborsOf(elect);
+        List<Variable> neighbors = successor.peekUnassignedNeighborsOf(elect);
         if (neighbors.isEmpty()) {
             // This assignment is not concerning others, just returns standard assignments.
             if (!randomSort) return wordCandidates;
@@ -69,7 +69,7 @@ public abstract class LeastConstrainingValueExpander implements Expander {
             for (Variable n: neighbors) {
                 j = new IntersectJudger(n, elect, word);
                 // Finds the size of single unassigned variable's domain
-                int passed = (int) successor.getDomainOf(n).stream().filter(j::judge).count();
+                int passed = (int) successor.peekDomainOf(n).stream().filter(j::judge).count();
                 if (forwardCheck && passed == 0) {
                     // If this word contributes to some another unassigned variable having empty domain, this word
                     // must lead to failure; hence this word is not put into consideration and such node should not
@@ -103,7 +103,7 @@ public abstract class LeastConstrainingValueExpander implements Expander {
      */
     public static List<String> lcvForwardCheck(Variable elect,
                                                List<String> wordCandidates,
-                                               Node successor,
+                                               AbstractNode successor,
                                                boolean randomSort) {
         return lcv(elect, wordCandidates, successor, randomSort, true);
     }
@@ -120,8 +120,8 @@ public abstract class LeastConstrainingValueExpander implements Expander {
     }
 
     @Override
-    public List<Assignment> assign(Node successor) {
-        Collection<Variable> unassignedVars = successor.getUnassignedVariables();
+    public List<Assignment> assign(AbstractNode successor) {
+        Collection<Variable> unassignedVars = successor.peekUnassignedVariables();
         // Step (1)
         Variable elect = findElect().select(unassignedVars, successor);
         if (elect == null) {
@@ -131,7 +131,7 @@ public abstract class LeastConstrainingValueExpander implements Expander {
         }
         // Step (2) & (3)
         List<String> wordsInLcv = lcv(elect,
-                                      successor.getDomainOf(elect),
+                                      successor.peekDomainOf(elect),
                                       successor,
                                       randomSort(),
                                       forwardCheck);

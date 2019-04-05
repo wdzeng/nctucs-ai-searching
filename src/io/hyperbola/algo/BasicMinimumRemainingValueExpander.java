@@ -1,7 +1,6 @@
 package io.hyperbola.algo;
-import java.util.Comparator;
-import io.hyperbola.stream.Selector;
 import io.hyperbola.base.Variable;
+import io.hyperbola.stream.Selector;
 import static io.hyperbola.stream.Selector.ORIGIN_CLOSEST_SELECTOR;
 
 /**

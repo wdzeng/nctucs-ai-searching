@@ -25,7 +25,7 @@ public abstract class MinimumRemainingValueExpander implements Expander {
         List<Variable> elects = new ArrayList<>();
         int minDomainSize = Integer.MAX_VALUE, domainSize;
         for (Variable v: candidates) {
-            domainSize = successor.getDomainSizeOf(v);
+            domainSize = successor.peekDomainSizeOf(v);
             if (domainSize > minDomainSize) continue;
             if (domainSize < minDomainSize) {
                 minDomainSize = domainSize;
@@ -37,13 +37,13 @@ public abstract class MinimumRemainingValueExpander implements Expander {
     };
 
     @Override
-    public final List<Assignment> assign(Node successor) {
-        Collection<Variable> unassignedVars = successor.getUnassignedVariables();
+    public final List<Assignment> assign(AbstractNode successor) {
+        Collection<Variable> unassignedVars = successor.peekUnassignedVariables();
         Variable elect = new LayerFilterer<Variable>().then(MINIMUM_REMAINING_VALUE_FILTER)          // Step (1)
                                                       .then(findElect())                             // Step (2)
                                                       .select(unassignedVars, successor);
         if (elect == null) return List.of();
-        return Expander.matchWords(elect, successor.getDomainOf(elect), randomSort());  // Step (3)
+        return Expander.matchWords(elect, successor.peekDomainOf(elect), randomSort());  // Step (3)
     }
 
     /** Step (2): If more than one variables are picked in step (1), elect the final one by some method. */

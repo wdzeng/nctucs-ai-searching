@@ -6,7 +6,6 @@ public final class Assignment {
 
     /**
      * Creates an assignment object.
-     *
      * @param wordFilled  word assigned to a variable
      * @param varAssigned variable assigned
      * @throws IllegalArgumentException if lengths of word and variable are not identical

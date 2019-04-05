@@ -30,12 +30,17 @@ public final class Board {
 
     public int getWidth() {return width;}
 
-    private int index(int x, int y) {
-        return y * width + x;
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(sq);
     }
 
-    public char query(int x, int y) {
-        return sq[index(x, y)];
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Board) {
+            return Arrays.equals(sq, ((Board) o).sq);
+        }
+        return false;
     }
 
     @Override
@@ -55,16 +60,11 @@ public final class Board {
         return sb.toString();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o instanceof Board) {
-            return Arrays.equals(sq, ((Board) o).sq);
-        }
-        return false;
+    private int index(int x, int y) {
+        return y * width + x;
     }
 
-    @Override
-    public int hashCode() {
-        return Arrays.hashCode(sq);
+    public char query(int x, int y) {
+        return sq[index(x, y)];
     }
 }

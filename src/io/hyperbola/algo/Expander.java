@@ -49,14 +49,14 @@ public interface Expander {
      * @param successor node about to be expanded
      * @return a list of assignment, or an empty list if this node is not expandable.
      */
-    List<Assignment> assign(Node successor);
+    List<Assignment> assign(AbstractNode successor);
 
     /**
      * Generates offspring of a given node.
      */
-    default List<? extends Node> expand(Node node) {
+    default List<? extends AbstractNode> expand(AbstractNode node) {
         List<Assignment> asgList = assign(node);
-        List<Node> expanded = new ArrayList<>();
+        List<AbstractNode> expanded = new ArrayList<>();
         for (Assignment a: asgList) {
             try {expanded.add(node.expand(a));}
             catch (EmptyDomainException ignored) {}
