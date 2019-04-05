@@ -6,7 +6,6 @@ import io.hyperbola.base.Assignment;
 import io.hyperbola.base.Dictionary;
 import io.hyperbola.base.Variable;
 import io.hyperbola.base.VariableSurveyResult;
-import static java.util.Map.copyOf;
 
 /**
  * This class is an simple implementation of {@link Node}. Forward checking is supported and it is just an option.
@@ -53,8 +52,8 @@ public class BasicNode extends AbstractNode {
                                           parent.forwardCheck);
         successor = parent;
         assignment = lastAssignment;
-        unassigned = copyOf(unassignedVarDomainMap);
-        unassignedNeighbors = copyOf(unassignedVarNeighborsMap);
+        unassigned = unassignedVarDomainMap;
+        unassignedNeighbors = unassignedVarNeighborsMap;
         prevAssignments = appendList(successor.prevAssignments, successor.assignment);
         wBoard = successor.wBoard;
         hBoard = successor.hBoard;

@@ -22,7 +22,7 @@ public abstract class AbstractNode implements Node {
         List<T> merged = new ArrayList<>(former.size() + 1);
         merged.addAll(former);
         merged.add(latter);
-        return copyOf(merged);
+        return merged;
     }
 
     /**
@@ -37,7 +37,7 @@ public abstract class AbstractNode implements Node {
         for (Variable v: varSet.variables) {
             initMap.put(v, dictionary.getWordsByLength(v.length()));
         }
-        return copyOf(initMap);
+        return initMap;
     }
 
     /**
@@ -68,7 +68,7 @@ public abstract class AbstractNode implements Node {
             if (requireNonEmptyDomain && domain.isEmpty()) {
                 throw new EmptyDomainException();
             }
-            domainMap.put(n, copyOf(domain));
+            domainMap.put(n, domain);
 
             // Update the neighbors
             updatedNeighborList = new ArrayList<>(neighborsMap.get(n));
@@ -92,7 +92,7 @@ public abstract class AbstractNode implements Node {
         Collection<Variable> vars = varSet.variables;
         Map<Variable, List<Variable>> map = new HashMap<>(vars.size());
         for (Variable v: vars) map.put(v, v.getNeighbors());
-        return copyOf(map);
+        return map;
     }
 
     @Override

@@ -18,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         int[] dicts = {200, 500, 1000, 1800, 3000};
-        for (int i = 2; i <= 4; i++) {
+        for (int i = 1; i <= 4; i++) {
             for (int dict: dicts) {
                 task(dict, "Test data " + i + " (Standard)/dict" + dict + ".txt", i, "Dict " + dict);
             }

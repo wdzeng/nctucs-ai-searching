@@ -78,8 +78,8 @@ public class Ac3Node extends AbstractNode {
         }
 
         successor = parent;
-        unassigned = copyOf(unassignedVarDomainMap);
-        unassignedNeighbors = copyOf(unassignedVarNeighborsMap);
+        unassigned = unassignedVarDomainMap;
+        unassignedNeighbors = unassignedVarNeighborsMap;
         assignment = lastAssignment;
         prevAssignments = appendList(successor.prevAssignments, successor.assignment);
         wBoard = successor.wBoard;
@@ -97,8 +97,8 @@ public class Ac3Node extends AbstractNode {
                     Map<Variable, List<String>> unassignedVarDomainMap,
                     Map<Variable, List<Variable>> unassignedVarNeighborsMap) {
         successor = parent;
-        unassigned = copyOf(unassignedVarDomainMap);
-        unassignedNeighbors = copyOf(unassignedVarNeighborsMap);
+        unassigned = copyOf(unassignedVarDomainMap);              // Should make a copy
+        unassignedNeighbors = copyOf(unassignedVarNeighborsMap);  // Should make a copy
         assignment = lastAssignment;
         prevAssignments = appendList(successor.prevAssignments, successor.assignment);
         wBoard = parent.wBoard;

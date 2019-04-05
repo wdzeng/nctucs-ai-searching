@@ -1,0 +1,24 @@
+Dict 500
+
+Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Basic                     61                 8               215                12
+DGH-MRC-LCV Basic                     61               146             7,564               171
+MRV Basic                             61                 2               215                15
+DGH Basic                             61                89             9,505               171
+LCV Basic                             61                27               496                55
+Basic Basic                           61                38             2,613                88
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Forward check             61                 1               136                 7
+DGH-MRC-LCV Forward check             61                 7               156                12
+MRV Forward check                     61                 2               136                10
+DGH Forward check                     61                 4               159                12
+LCV Forward check                     61                15               496                55
+Basic Forward check                   61                18               496                56
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV AC-3                      61                17               112                 7
+DGH-MRC-LCV AC-3                      61                 7               106                12
+MRV AC-3                              61                 1               112                10
+DGH AC-3                              61                 5               105                12
+LCV AC-3                              61                14               292                41
+Basic AC-3                            61                10               292                44

@@ -1,0 +1,24 @@
+Dict 1000
+
+Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Basic                  1,466                69             3,669                25
+DGH-MRC-LCV Basic                  1,466               342            31,268               336
+MRV Basic                          1,466                10             3,669                36
+DGH Basic                          1,466               233            44,987               336
+LCV Basic                          1,466                43             5,147               145
+Basic Basic                        1,466                92            18,417               171
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Forward check          1,466                18             2,649                19
+DGH-MRC-LCV Forward check          1,466                93             3,632                59
+MRV Forward check                  1,466                18             2,649                29
+DGH Forward check                  1,466                52             4,249                76
+LCV Forward check                  1,466                36             5,147               145
+Basic Forward check                1,466                76             5,147               148
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV AC-3                   1,466                29             2,181                19
+DGH-MRC-LCV AC-3                   1,466                59             1,998                57
+MRV AC-3                           1,466                12             2,181                29
+DGH AC-3                           1,466                50             2,008                76
+LCV AC-3                           1,466                43             3,270               145
+Basic AC-3                         1,466                99             3,270               148

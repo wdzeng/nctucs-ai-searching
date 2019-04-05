@@ -2,23 +2,23 @@ Dict 1000
 
 Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
 ----------------------------------------------------------------------------------------------
-MRV-DGH-LCV Basic                 21,105               185            38,174                58
-DGH-MRC-LCV Basic                 21,105               278            65,161               155
-MRV Basic                         21,105                76            38,184                80
-DGH Basic                         21,105             5,043         2,497,221               363
-LCV Basic                         21,105               262            72,019               158
-Basic Basic                       21,105               438           246,935               194
+MRV-DGH-LCV Basic                 21,105                42            38,174                58
+DGH-MRC-LCV Basic                 21,105               100            65,161               155
+MRV Basic                         21,105                35            38,184                80
+DGH Basic                         21,105             3,284         2,497,221               363
+LCV Basic                         21,105               164            72,019               158
+Basic Basic                       21,105               310           246,935               194
 ----------------------------------------------------------------------------------------------
-MRV-DGH-LCV Forward check         21,105                57            33,320                49
-DGH-MRC-LCV Forward check         21,105                67            37,868               127
-MRV Forward check                 21,105                46            33,324                64
-DGH Forward check                 21,105               671            55,678               223
-LCV Forward check                 21,105               210            72,019               158
-Basic Forward check               21,105               521            72,019               173
+MRV-DGH-LCV Forward check         21,105                46            33,320                49
+DGH-MRC-LCV Forward check         21,105                52            37,868               127
+MRV Forward check                 21,105                35            33,324                64
+DGH Forward check                 21,105               500            55,678               223
+LCV Forward check                 21,105               160            72,019               158
+Basic Forward check               21,105               392            72,019               173
 ----------------------------------------------------------------------------------------------
-MRV-DGH-LCV AC-3                  21,105                63            30,137                49
-DGH-MRC-LCV AC-3                  21,105                62            31,968               110
-MRV AC-3                          21,105                49            30,141                64
-DGH AC-3                          21,105               377            34,493               212
-LCV AC-3                          21,105               199            47,468               158
-Basic AC-3                        21,105               376            47,468               172
+MRV-DGH-LCV AC-3                  21,105                48            30,137                49
+DGH-MRC-LCV AC-3                  21,105                48            31,968               110
+MRV AC-3                          21,105                37            30,141                64
+DGH AC-3                          21,105               317            34,493               212
+LCV AC-3                          21,105               167            47,468               158
+Basic AC-3                        21,105               340            47,468               172
