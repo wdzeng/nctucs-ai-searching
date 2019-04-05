@@ -1,126 +1,651 @@
 # Test Data 1 (Standard)
 
-## Dict 200
+## 200 Words
 
-Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV                            0                16                17                 4
-DGH-MRC-LCV                            0                 4                17                 4
-MRV                                    0                 2                17                 6
-DGH                                    0               102             1,098                60
-LCV                                    0                 4                44                12
-Simple                                 0                 6               247                30
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV Forward check              0                 1                 8                 2
-DGH-MRC-LCV Forward check              0                 1                 8                 2
-MRV Forward check                      0                 1                 8                 3
-DGH Forward check                      0                 2                 4                 3
-LCV Forward check                      0                 2                44                12
-Simple Forward check                   0                 3                44                13
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV AC-3                       0                 1                 4                 2
-DGH-MRC-LCV AC-3                       0                 1                 4                 2
-MRV AC-3                               0                 0                 4                 2
-DGH AC-3                               0                 2                 3                 2
-LCV AC-3                               0                 1                15                11
-Simple AC-3                            0                 2                15                11
+Searching_algorithm               Solutions          Time(ms)             Steps    Max_stack_size
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV                  #1           0                10                17                 5
+MRV-DGH-LCV                  #2           0                 3                17                 5
+MRV-DGH-LCV                  #3           0                 3                17                 5
+MRV-DGH-LCV                  #4           0                 3                17                 5
+MRV-DGH-LCV                  #5           0                 7                17                 5
+MRV-DGH-LCV                 AVG           0                 5                17                 5
 
-## Dict 500
+DGH-MRC-LCV                  #1           0                74             1,055                63
+DGH-MRC-LCV                  #2           0                21             1,055                63
+DGH-MRC-LCV                  #3           0                17             1,055                63
+DGH-MRC-LCV                  #4           0                21             1,055                63
+DGH-MRC-LCV                  #5           0                16             1,055                63
+DGH-MRC-LCV                 AVG           0                29             1,055                63
 
-Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV                           61                61               215                12
-DGH-MRC-LCV                           61                22               215                12
-MRV                                   61                13               215                15
-DGH                                   61               242             9,505               171
-LCV                                   61                26               496                55
-Simple                                61                35             2,613                88
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV Forward check             61                10               136                 7
-DGH-MRC-LCV Forward check             61                 4               136                 7
-MRV Forward check                     61                 4               136                10
-DGH Forward check                     61                 9               159                12
-LCV Forward check                     61                14               496                55
-Simple Forward check                  61                20               496                56
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV AC-3                      61                 8               112                 7
-DGH-MRC-LCV AC-3                      61                12               112                 7
-MRV AC-3                              61                 2               112                10
-DGH AC-3                              61                11               105                12
-LCV AC-3                              61                11               292                41
-Simple AC-3                           61                14               292                44
+MRV                          #1           0                 1                17                 6
+MRV                          #2           0                 1                17                 6
+MRV                          #3           0                 0                17                 6
+MRV                          #4           0                 0                17                 6
+MRV                          #5           0                 1                17                 6
+MRV                         AVG           0                 0                17                 6
 
-## Dict 1000
+DGH                          #1           0                12             1,141                63
+DGH                          #2           0                32             1,141                63
+DGH                          #3           0                 8             1,141                63
+DGH                          #4           0                 7             1,141                63
+DGH                          #5           0                 7             1,141                63
+DGH                         AVG           0                13             1,141                63
 
-Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV                        1,466               155             3,669                25
-DGH-MRC-LCV                        1,466                98             3,669                25
-MRV                                1,466                69             3,669                36
-DGH                                1,466               756            44,987               336
-LCV                                1,466               127             5,147               145
-Simple                             1,466               157            18,417               171
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV Forward check          1,466                49             2,649                19
-DGH-MRC-LCV Forward check          1,466                35             2,649                19
-MRV Forward check                  1,466                27             2,649                29
-DGH Forward check                  1,466               124             4,249                76
-LCV Forward check                  1,466               122             5,147               145
-Simple Forward check               1,466               191             5,147               148
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV AC-3                   1,466                38             2,181                19
-DGH-MRC-LCV AC-3                   1,466                34             2,181                19
-MRV AC-3                           1,466                23             2,181                29
-DGH AC-3                           1,466                62             2,008                76
-LCV AC-3                           1,466                66             3,270               145
-Simple AC-3                        1,466               107             3,270               148
+LCV                          #1           0                 1                33                13
+LCV                          #2           0                 1                33                13
+LCV                          #3           0                 1                33                13
+LCV                          #4           0                 2                33                13
+LCV                          #5           0                 2                33                13
+LCV                         AVG           0                 1                33                13
 
-## Dict 1800
+Basic                        #1           0                 3               171                33
+Basic                        #2           0                 3               171                33
+Basic                        #3           0                 2               171                33
+Basic                        #4           0                 2               171                33
+Basic                        #5           0                 8               171                33
+Basic                       AVG           0                 3               171                33
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV_Forward_check    #1           0                 0                 6                 3
+MRV-DGH-LCV_Forward_check    #2           0                 0                 6                 3
+MRV-DGH-LCV_Forward_check    #3           0                 1                 6                 3
+MRV-DGH-LCV_Forward_check    #4           0                 0                 6                 3
+MRV-DGH-LCV_Forward_check    #5           0                 0                 6                 3
+MRV-DGH-LCV_Forward_check   AVG           0                 0                 6                 3
 
-Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV                       16,906               472            30,571                41
-DGH-MRC-LCV                       16,906               270            30,571                41
-MRV                               16,906               207            30,571                87
-DGH                               16,906             1,761           189,919               585
-LCV                               16,906               347            43,468               270
-Simple                            16,906               386           109,544               310
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV Forward check         16,906                85            25,674                35
-DGH-MRC-LCV Forward check         16,906                73            25,674                35
-MRV Forward check                 16,906                51            25,674                72
-DGH Forward check                 16,906               180            43,441               214
-LCV Forward check                 16,906               174            43,468               270
-Simple Forward check              16,906               221            43,468               281
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV AC-3                  16,906               152            22,583                35
-DGH-MRC-LCV AC-3                  16,906               131            22,583                35
-MRV AC-3                          16,906                56            22,583                72
-DGH AC-3                          16,906               122            23,997               213
-LCV AC-3                          16,906               360            26,838               270
-Simple AC-3                       16,906               279            26,838               281
+DGH-MRC-LCV_Forward_check    #1           0                 1                 2                 1
+DGH-MRC-LCV_Forward_check    #2           0                 1                 2                 1
+DGH-MRC-LCV_Forward_check    #3           0                 1                 2                 1
+DGH-MRC-LCV_Forward_check    #4           0                 2                 2                 1
+DGH-MRC-LCV_Forward_check    #5           0                 1                 2                 1
+DGH-MRC-LCV_Forward_check   AVG           0                 1                 2                 1
 
-## Dict 3000
+MRV_Forward_check            #1           0                 0                 6                 3
+MRV_Forward_check            #2           0                 0                 6                 3
+MRV_Forward_check            #3           0                 1                 6                 3
+MRV_Forward_check            #4           0                 0                 6                 3
+MRV_Forward_check            #5           0                 0                 6                 3
+MRV_Forward_check           AVG           0                 0                 6                 3
 
-Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV                      303,594             2,249           437,051                73
-DGH-MRC-LCV                      303,594               800           437,051                73
-MRV                              303,594               683           437,051               147
-DGH                              303,594             2,180         1,057,869               987
-LCV                              303,594             1,164           530,559               477
-Simple                           303,594             1,327           828,911               543
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV Forward check        303,594               776           406,078                71
-DGH-MRC-LCV Forward check        303,594               721           406,078                71
-MRV Forward check                303,594               509           406,078               133
-DGH Forward check                303,594               888           549,327               542
-LCV Forward check                303,594             1,129           530,559               477
-Simple Forward check             303,594             1,235           530,559               500
-----------------------------------------------------------------------------------------------
-MRV-DGH-LCV AC-3                 303,594             1,078           385,322                71
-DGH-MRC-LCV AC-3                 303,594               766           385,322                71
-MRV AC-3                         303,594               576           385,322               133
-DGH AC-3                         303,594               712           427,399               541
-LCV AC-3                         303,594             1,018           421,365               477
-Simple AC-3                      303,594             1,263           421,365               500
+DGH_Forward_check            #1           0                 0                 2                 1
+DGH_Forward_check            #2           0                 0                 2                 1
+DGH_Forward_check            #3           0                 1                 2                 1
+DGH_Forward_check            #4           0                 1                 2                 1
+DGH_Forward_check            #5           0                 1                 2                 1
+DGH_Forward_check           AVG           0                 0                 2                 1
+
+LCV_Forward_check            #1           0                 1                33                13
+LCV_Forward_check            #2           0                 1                33                13
+LCV_Forward_check            #3           0                 1                33                13
+LCV_Forward_check            #4           0                 6                33                13
+LCV_Forward_check            #5           0                 1                33                13
+LCV_Forward_check           AVG           0                 2                33                13
+
+Basic_Forward_check          #1           0                 1                33                13
+Basic_Forward_check          #2           0                 1                33                13
+Basic_Forward_check          #3           0                 0                33                13
+Basic_Forward_check          #4           0                 1                33                13
+Basic_Forward_check          #5           0                 1                33                13
+Basic_Forward_check         AVG           0                 0                33                13
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV_AC-3             #1           0                 5                 4                 3
+MRV-DGH-LCV_AC-3             #2           0                 1                 4                 3
+MRV-DGH-LCV_AC-3             #3           0                 0                 4                 3
+MRV-DGH-LCV_AC-3             #4           0                 0                 4                 3
+MRV-DGH-LCV_AC-3             #5           0                 1                 4                 3
+MRV-DGH-LCV_AC-3            AVG           0                 1                 4                 3
+
+DGH-MRC-LCV_AC-3             #1           0                 1                 1                 0
+DGH-MRC-LCV_AC-3             #2           0                 1                 1                 0
+DGH-MRC-LCV_AC-3             #3           0                 1                 1                 0
+DGH-MRC-LCV_AC-3             #4           0                 0                 1                 0
+DGH-MRC-LCV_AC-3             #5           0                 0                 1                 0
+DGH-MRC-LCV_AC-3            AVG           0                 0                 1                 0
+
+MRV_AC-3                     #1           0                 1                 4                 3
+MRV_AC-3                     #2           0                 1                 4                 3
+MRV_AC-3                     #3           0                 0                 4                 3
+MRV_AC-3                     #4           0                 1                 4                 3
+MRV_AC-3                     #5           0                 8                 4                 3
+MRV_AC-3                    AVG           0                 2                 4                 3
+
+DGH_AC-3                     #1           0                 1                 1                 0
+DGH_AC-3                     #2           0                 1                 1                 0
+DGH_AC-3                     #3           0                 0                 1                 0
+DGH_AC-3                     #4           0                 0                 1                 0
+DGH_AC-3                     #5           0                 5                 1                 0
+DGH_AC-3                    AVG           0                 1                 1                 0
+
+LCV_AC-3                     #1           0                 7                 3                 2
+LCV_AC-3                     #2           0                 3                 3                 2
+LCV_AC-3                     #3           0                 1                 3                 2
+LCV_AC-3                     #4           0                 1                 3                 2
+LCV_AC-3                     #5           0                 3                 3                 2
+LCV_AC-3                    AVG           0                 3                 3                 2
+
+Basic_AC-3                   #1           0                 1                 3                 2
+Basic_AC-3                   #2           0                 1                 3                 2
+Basic_AC-3                   #3           0                 0                 3                 2
+Basic_AC-3                   #4           0                 0                 3                 2
+Basic_AC-3                   #5           0                 2                 3                 2
+Basic_AC-3                  AVG           0                 0                 3                 2
+
+## 500 Words
+
+Searching_algorithm               Solutions          Time(ms)             Steps    Max_stack_size
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV                  #1          32                 3               180                11
+MRV-DGH-LCV                  #2          32                 2               180                11
+MRV-DGH-LCV                  #3          32                11               180                11
+MRV-DGH-LCV                  #4          32                 2               180                11
+MRV-DGH-LCV                  #5          32                 2               180                11
+MRV-DGH-LCV                 AVG          32                 4               180                11
+
+DGH-MRC-LCV                  #1          32                77             6,557               159
+DGH-MRC-LCV                  #2          32                78             6,557               159
+DGH-MRC-LCV                  #3          32                68             6,557               159
+DGH-MRC-LCV                  #4          32                47             6,557               159
+DGH-MRC-LCV                  #5          32                80             6,557               159
+DGH-MRC-LCV                 AVG          32                70             6,557               159
+
+MRV                          #1          32                 2               180                17
+MRV                          #2          32                 0               180                17
+MRV                          #3          32                 8               180                17
+MRV                          #4          32                 1               180                17
+MRV                          #5          32                 1               180                17
+MRV                         AVG          32                 2               180                17
+
+DGH                          #1          32                45             7,786               159
+DGH                          #2          32                40             7,786               159
+DGH                          #3          32                34             7,786               159
+DGH                          #4          32                35             7,786               159
+DGH                          #5          32                29             7,786               159
+DGH                         AVG          32                36             7,786               159
+
+LCV                          #1          32                 5               375                62
+LCV                          #2          32                 4               375                62
+LCV                          #3          32                 4               375                62
+LCV                          #4          32                 4               375                62
+LCV                          #5          32                 4               375                62
+LCV                         AVG          32                 4               375                62
+
+Basic                        #1          32                 7             1,757                91
+Basic                        #2          32                 7             1,757                91
+Basic                        #3          32                 7             1,757                91
+Basic                        #4          32                16             1,757                91
+Basic                        #5          32                 9             1,757                91
+Basic                       AVG          32                 9             1,757                91
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV_Forward_check    #1          32                 2               108                 7
+MRV-DGH-LCV_Forward_check    #2          32                 7               108                 7
+MRV-DGH-LCV_Forward_check    #3          32                 2               108                 7
+MRV-DGH-LCV_Forward_check    #4          32                 4               108                 7
+MRV-DGH-LCV_Forward_check    #5          32                 1               108                 7
+MRV-DGH-LCV_Forward_check   AVG          32                 3               108                 7
+
+DGH-MRC-LCV_Forward_check    #1          32                 7               120                12
+DGH-MRC-LCV_Forward_check    #2          32                 7               120                12
+DGH-MRC-LCV_Forward_check    #3          32                 6               120                12
+DGH-MRC-LCV_Forward_check    #4          32                16               120                12
+DGH-MRC-LCV_Forward_check    #5          32                 7               120                12
+DGH-MRC-LCV_Forward_check   AVG          32                 8               120                12
+
+MRV_Forward_check            #1          32                 1               108                 8
+MRV_Forward_check            #2          32                 1               108                 8
+MRV_Forward_check            #3          32                 1               108                 8
+MRV_Forward_check            #4          32                 1               108                 8
+MRV_Forward_check            #5          32                 1               108                 8
+MRV_Forward_check           AVG          32                 1               108                 8
+
+DGH_Forward_check            #1          32                 6               124                15
+DGH_Forward_check            #2          32                 5               124                15
+DGH_Forward_check            #3          32                 5               124                15
+DGH_Forward_check            #4          32                 5               124                15
+DGH_Forward_check            #5          32                 5               124                15
+DGH_Forward_check           AVG          32                 5               124                15
+
+LCV_Forward_check            #1          32                 4               375                62
+LCV_Forward_check            #2          32                 4               375                62
+LCV_Forward_check            #3          32                 4               375                62
+LCV_Forward_check            #4          32                 4               375                62
+LCV_Forward_check            #5          32                 5               375                62
+LCV_Forward_check           AVG          32                 4               375                62
+
+Basic_Forward_check          #1          32                12               375                63
+Basic_Forward_check          #2          32                27               375                63
+Basic_Forward_check          #3          32                17               375                63
+Basic_Forward_check          #4          32                 7               375                63
+Basic_Forward_check          #5          32                20               375                63
+Basic_Forward_check         AVG          32                16               375                63
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV_AC-3             #1          32                 4                63                 7
+MRV-DGH-LCV_AC-3             #2          32                 2                63                 7
+MRV-DGH-LCV_AC-3             #3          32                 1                63                 7
+MRV-DGH-LCV_AC-3             #4          32                 1                63                 7
+MRV-DGH-LCV_AC-3             #5          32                 1                63                 7
+MRV-DGH-LCV_AC-3            AVG          32                 1                63                 7
+
+DGH-MRC-LCV_AC-3             #1          32                27                51                11
+DGH-MRC-LCV_AC-3             #2          32                 3                51                11
+DGH-MRC-LCV_AC-3             #3          32                18                51                11
+DGH-MRC-LCV_AC-3             #4          32                 3                51                11
+DGH-MRC-LCV_AC-3             #5          32                 3                51                11
+DGH-MRC-LCV_AC-3            AVG          32                10                51                11
+
+MRV_AC-3                     #1          32                 1                63                 8
+MRV_AC-3                     #2          32                 1                63                 8
+MRV_AC-3                     #3          32                 1                63                 8
+MRV_AC-3                     #4          32                 1                63                 8
+MRV_AC-3                     #5          32                 1                63                 8
+MRV_AC-3                    AVG          32                 1                63                 8
+
+DGH_AC-3                     #1          32                 4                51                14
+DGH_AC-3                     #2          32                 2                51                14
+DGH_AC-3                     #3          32                11                51                14
+DGH_AC-3                     #4          32                 3                51                14
+DGH_AC-3                     #5          32                13                51                14
+DGH_AC-3                    AVG          32                 6                51                14
+
+LCV_AC-3                     #1          32                 3               183                54
+LCV_AC-3                     #2          32                 2               183                54
+LCV_AC-3                     #3          32                11               183                54
+LCV_AC-3                     #4          32                 3               183                54
+LCV_AC-3                     #5          32                 2               183                54
+LCV_AC-3                    AVG          32                 4               183                54
+
+Basic_AC-3                   #1          32                 4               183                54
+Basic_AC-3                   #2          32                 9               183                54
+Basic_AC-3                   #3          32                 4               183                54
+Basic_AC-3                   #4          32                 4               183                54
+Basic_AC-3                   #5          32                 6               183                54
+Basic_AC-3                  AVG          32                 5               183                54
+
+## 1000 Words
+
+Searching_algorithm               Solutions          Time(ms)             Steps    Max_stack_size
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV                  #1       1,381                34             3,389                27
+MRV-DGH-LCV                  #2       1,381                14             3,389                27
+MRV-DGH-LCV                  #3       1,381                13             3,389                27
+MRV-DGH-LCV                  #4       1,381                14             3,389                27
+MRV-DGH-LCV                  #5       1,381                13             3,389                27
+MRV-DGH-LCV                 AVG       1,381                17             3,389                27
+
+DGH-MRC-LCV                  #1       1,381               188            29,396               325
+DGH-MRC-LCV                  #2       1,381               136            29,396               325
+DGH-MRC-LCV                  #3       1,381               130            29,396               325
+DGH-MRC-LCV                  #4       1,381               121            29,396               325
+DGH-MRC-LCV                  #5       1,381               128            29,396               325
+DGH-MRC-LCV                 AVG       1,381               140            29,396               325
+
+MRV                          #1       1,381                 6             3,389                39
+MRV                          #2       1,381                 6             3,389                39
+MRV                          #3       1,381                 7             3,389                39
+MRV                          #4       1,381                 7             3,389                39
+MRV                          #5       1,381                 7             3,389                39
+MRV                         AVG       1,381                 6             3,389                39
+
+DGH                          #1       1,381                91            41,359               325
+DGH                          #2       1,381                75            41,359               325
+DGH                          #3       1,381                70            41,359               325
+DGH                          #4       1,381                67            41,359               325
+DGH                          #5       1,381                58            41,359               325
+DGH                         AVG       1,381                72            41,359               325
+
+LCV                          #1       1,381                22             4,647               157
+LCV                          #2       1,381                19             4,647               157
+LCV                          #3       1,381                14             4,647               157
+LCV                          #4       1,381                16             4,647               157
+LCV                          #5       1,381                21             4,647               157
+LCV                         AVG       1,381                18             4,647               157
+
+Basic                        #1       1,381                31            16,399               188
+Basic                        #2       1,381                26            16,399               188
+Basic                        #3       1,381                23            16,399               188
+Basic                        #4       1,381                28            16,399               188
+Basic                        #5       1,381                32            16,399               188
+Basic                       AVG       1,381                28            16,399               188
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV_Forward_check    #1       1,381                 7             2,622                20
+MRV-DGH-LCV_Forward_check    #2       1,381                 8             2,622                20
+MRV-DGH-LCV_Forward_check    #3       1,381                 6             2,622                20
+MRV-DGH-LCV_Forward_check    #4       1,381                10             2,622                20
+MRV-DGH-LCV_Forward_check    #5       1,381                12             2,622                20
+MRV-DGH-LCV_Forward_check   AVG       1,381                 8             2,622                20
+
+DGH-MRC-LCV_Forward_check    #1       1,381                25             3,365                67
+DGH-MRC-LCV_Forward_check    #2       1,381                24             3,365                67
+DGH-MRC-LCV_Forward_check    #3       1,381                24             3,365                67
+DGH-MRC-LCV_Forward_check    #4       1,381                24             3,365                67
+DGH-MRC-LCV_Forward_check    #5       1,381                21             3,365                67
+DGH-MRC-LCV_Forward_check   AVG       1,381                23             3,365                67
+
+MRV_Forward_check            #1       1,381                 7             2,622                34
+MRV_Forward_check            #2       1,381                 7             2,622                34
+MRV_Forward_check            #3       1,381                 7             2,622                34
+MRV_Forward_check            #4       1,381                 8             2,622                34
+MRV_Forward_check            #5       1,381                 5             2,622                34
+MRV_Forward_check           AVG       1,381                 6             2,622                34
+
+DGH_Forward_check            #1       1,381                22             3,716                86
+DGH_Forward_check            #2       1,381                22             3,716                86
+DGH_Forward_check            #3       1,381                23             3,716                86
+DGH_Forward_check            #4       1,381                22             3,716                86
+DGH_Forward_check            #5       1,381                22             3,716                86
+DGH_Forward_check           AVG       1,381                22             3,716                86
+
+LCV_Forward_check            #1       1,381                11             4,647               157
+LCV_Forward_check            #2       1,381                11             4,647               157
+LCV_Forward_check            #3       1,381                11             4,647               157
+LCV_Forward_check            #4       1,381                11             4,647               157
+LCV_Forward_check            #5       1,381                12             4,647               157
+LCV_Forward_check           AVG       1,381                11             4,647               157
+
+Basic_Forward_check          #1       1,381                26             4,647               161
+Basic_Forward_check          #2       1,381                29             4,647               161
+Basic_Forward_check          #3       1,381                30             4,647               161
+Basic_Forward_check          #4       1,381                31             4,647               161
+Basic_Forward_check          #5       1,381                29             4,647               161
+Basic_Forward_check         AVG       1,381                29             4,647               161
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV_AC-3             #1       1,381                 9             2,027                20
+MRV-DGH-LCV_AC-3             #2       1,381                 9             2,027                20
+MRV-DGH-LCV_AC-3             #3       1,381                 7             2,027                20
+MRV-DGH-LCV_AC-3             #4       1,381                10             2,027                20
+MRV-DGH-LCV_AC-3             #5       1,381                10             2,027                20
+MRV-DGH-LCV_AC-3            AVG       1,381                 9             2,027                20
+
+DGH-MRC-LCV_AC-3             #1       1,381                29             1,980                67
+DGH-MRC-LCV_AC-3             #2       1,381                28             1,980                67
+DGH-MRC-LCV_AC-3             #3       1,381                29             1,980                67
+DGH-MRC-LCV_AC-3             #4       1,381                22             1,980                67
+DGH-MRC-LCV_AC-3             #5       1,381                23             1,980                67
+DGH-MRC-LCV_AC-3            AVG       1,381                26             1,980                67
+
+MRV_AC-3                     #1       1,381                 4             2,027                33
+MRV_AC-3                     #2       1,381                 6             2,027                33
+MRV_AC-3                     #3       1,381                 6             2,027                33
+MRV_AC-3                     #4       1,381                 6             2,027                33
+MRV_AC-3                     #5       1,381                 4             2,027                33
+MRV_AC-3                    AVG       1,381                 5             2,027                33
+
+DGH_AC-3                     #1       1,381                16             1,999                83
+DGH_AC-3                     #2       1,381                14             1,999                83
+DGH_AC-3                     #3       1,381                14             1,999                83
+DGH_AC-3                     #4       1,381                14             1,999                83
+DGH_AC-3                     #5       1,381                15             1,999                83
+DGH_AC-3                    AVG       1,381                14             1,999                83
+
+LCV_AC-3                     #1       1,381                11             3,000               150
+LCV_AC-3                     #2       1,381                11             3,000               150
+LCV_AC-3                     #3       1,381                18             3,000               150
+LCV_AC-3                     #4       1,381                13             3,000               150
+LCV_AC-3                     #5       1,381                16             3,000               150
+LCV_AC-3                    AVG       1,381                13             3,000               150
+
+Basic_AC-3                   #1       1,381                31             3,000               153
+Basic_AC-3                   #2       1,381                31             3,000               153
+Basic_AC-3                   #3       1,381                27             3,000               153
+Basic_AC-3                   #4       1,381                25             3,000               153
+Basic_AC-3                   #5       1,381                37             3,000               153
+Basic_AC-3                  AVG       1,381                30             3,000               153
+
+## 1800 Words
+
+Searching_algorithm               Solutions          Time(ms)             Steps    Max_stack_size
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV                  #1      31,643                67            55,534                48
+MRV-DGH-LCV                  #2      31,643                71            55,534                48
+MRV-DGH-LCV                  #3      31,643                63            55,534                48
+MRV-DGH-LCV                  #4      31,643                58            55,534                48
+MRV-DGH-LCV                  #5      31,643                63            55,534                48
+MRV-DGH-LCV                 AVG      31,643                64            55,534                48
+
+DGH-MRC-LCV                  #1      31,643               223           133,959               579
+DGH-MRC-LCV                  #2      31,643               204           133,959               579
+DGH-MRC-LCV                  #3      31,643               206           133,959               579
+DGH-MRC-LCV                  #4      31,643               202           133,959               579
+DGH-MRC-LCV                  #5      31,643               203           133,959               579
+DGH-MRC-LCV                 AVG      31,643               207           133,959               579
+
+MRV                          #1      31,643                45            55,534                91
+MRV                          #2      31,643                44            55,534                91
+MRV                          #3      31,643                43            55,534                91
+MRV                          #4      31,643                44            55,534                91
+MRV                          #5      31,643                46            55,534                91
+MRV                         AVG      31,643                44            55,534                91
+
+DGH                          #1      31,643               253           204,730               579
+DGH                          #2      31,643               234           204,730               579
+DGH                          #3      31,643               231           204,730               579
+DGH                          #4      31,643               235           204,730               579
+DGH                          #5      31,643               235           204,730               579
+DGH                         AVG      31,643               237           204,730               579
+
+LCV                          #1      31,643                92            66,662               279
+LCV                          #2      31,643                95            66,662               279
+LCV                          #3      31,643                97            66,662               279
+LCV                          #4      31,643                93            66,662               279
+LCV                          #5      31,643                92            66,662               279
+LCV                         AVG      31,643                93            66,662               279
+
+Basic                        #1      31,643               153           125,715               326
+Basic                        #2      31,643               151           125,715               326
+Basic                        #3      31,643               149           125,715               326
+Basic                        #4      31,643               147           125,715               326
+Basic                        #5      31,643               149           125,715               326
+Basic                       AVG      31,643               149           125,715               326
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV_Forward_check    #1      31,643                64            47,714                42
+MRV-DGH-LCV_Forward_check    #2      31,643                66            47,714                42
+MRV-DGH-LCV_Forward_check    #3      31,643                64            47,714                42
+MRV-DGH-LCV_Forward_check    #4      31,643                72            47,714                42
+MRV-DGH-LCV_Forward_check    #5      31,643                65            47,714                42
+MRV-DGH-LCV_Forward_check   AVG      31,643                66            47,714                42
+
+DGH-MRC-LCV_Forward_check    #1      31,643               126            56,366               167
+DGH-MRC-LCV_Forward_check    #2      31,643               128            56,366               167
+DGH-MRC-LCV_Forward_check    #3      31,643               122            56,366               167
+DGH-MRC-LCV_Forward_check    #4      31,643               126            56,366               167
+DGH-MRC-LCV_Forward_check    #5      31,643               125            56,366               167
+DGH-MRC-LCV_Forward_check   AVG      31,643               125            56,366               167
+
+MRV_Forward_check            #1      31,643                55            47,714                72
+MRV_Forward_check            #2      31,643                53            47,714                72
+MRV_Forward_check            #3      31,643                53            47,714                72
+MRV_Forward_check            #4      31,643                50            47,714                72
+MRV_Forward_check            #5      31,643                50            47,714                72
+MRV_Forward_check           AVG      31,643                52            47,714                72
+
+DGH_Forward_check            #1      31,643               119            68,291               261
+DGH_Forward_check            #2      31,643               117            68,291               261
+DGH_Forward_check            #3      31,643               119            68,291               261
+DGH_Forward_check            #4      31,643               113            68,291               261
+DGH_Forward_check            #5      31,643               117            68,291               261
+DGH_Forward_check           AVG      31,643               117            68,291               261
+
+LCV_Forward_check            #1      31,643                91            66,662               279
+LCV_Forward_check            #2      31,643                91            66,662               279
+LCV_Forward_check            #3      31,643                97            66,662               279
+LCV_Forward_check            #4      31,643                90            66,662               279
+LCV_Forward_check            #5      31,643                91            66,662               279
+LCV_Forward_check           AVG      31,643                92            66,662               279
+
+Basic_Forward_check          #1      31,643               164            66,662               288
+Basic_Forward_check          #2      31,643               164            66,662               288
+Basic_Forward_check          #3      31,643               161            66,662               288
+Basic_Forward_check          #4      31,643               160            66,662               288
+Basic_Forward_check          #5      31,643               162            66,662               288
+Basic_Forward_check         AVG      31,643               162            66,662               288
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV_AC-3             #1      31,643                64            41,648                42
+MRV-DGH-LCV_AC-3             #2      31,643                65            41,648                42
+MRV-DGH-LCV_AC-3             #3      31,643                64            41,648                42
+MRV-DGH-LCV_AC-3             #4      31,643                75            41,648                42
+MRV-DGH-LCV_AC-3             #5      31,643                66            41,648                42
+MRV-DGH-LCV_AC-3            AVG      31,643                66            41,648                42
+
+DGH-MRC-LCV_AC-3             #1      31,643               116            44,470               167
+DGH-MRC-LCV_AC-3             #2      31,643               122            44,470               167
+DGH-MRC-LCV_AC-3             #3      31,643               115            44,470               167
+DGH-MRC-LCV_AC-3             #4      31,643               121            44,470               167
+DGH-MRC-LCV_AC-3             #5      31,643               116            44,470               167
+DGH-MRC-LCV_AC-3            AVG      31,643               118            44,470               167
+
+MRV_AC-3                     #1      31,643                51            41,648                72
+MRV_AC-3                     #2      31,643                53            41,648                72
+MRV_AC-3                     #3      31,643                54            41,648                72
+MRV_AC-3                     #4      31,643                50            41,648                72
+MRV_AC-3                     #5      31,643                52            41,648                72
+MRV_AC-3                    AVG      31,643                52            41,648                72
+
+DGH_AC-3                     #1      31,643               103            46,253               261
+DGH_AC-3                     #2      31,643               107            46,253               261
+DGH_AC-3                     #3      31,643               102            46,253               261
+DGH_AC-3                     #4      31,643               100            46,253               261
+DGH_AC-3                     #5      31,643                99            46,253               261
+DGH_AC-3                    AVG      31,643               102            46,253               261
+
+LCV_AC-3                     #1      31,643                95            48,267               279
+LCV_AC-3                     #2      31,643                87            48,267               279
+LCV_AC-3                     #3      31,643                89            48,267               279
+LCV_AC-3                     #4      31,643                90            48,267               279
+LCV_AC-3                     #5      31,643                86            48,267               279
+LCV_AC-3                    AVG      31,643                89            48,267               279
+
+Basic_AC-3                   #1      31,643               158            48,267               288
+Basic_AC-3                   #2      31,643               159            48,267               288
+Basic_AC-3                   #3      31,643               158            48,267               288
+Basic_AC-3                   #4      31,643               157            48,267               288
+Basic_AC-3                   #5      31,643               156            48,267               288
+Basic_AC-3                  AVG      31,643               157            48,267               288
+
+## 3000 Words
+
+Searching_algorithm               Solutions          Time(ms)             Steps    Max_stack_size
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV                  #1     276,215               359           398,675                73
+MRV-DGH-LCV                  #2     276,215               350           398,675                73
+MRV-DGH-LCV                  #3     276,215               348           398,675                73
+MRV-DGH-LCV                  #4     276,215               349           398,675                73
+MRV-DGH-LCV                  #5     276,215               347           398,675                73
+MRV-DGH-LCV                 AVG     276,215               350           398,675                73
+
+DGH-MRC-LCV                  #1     276,215               713           628,035               977
+DGH-MRC-LCV                  #2     276,215               746           628,035               977
+DGH-MRC-LCV                  #3     276,215               728           628,035               977
+DGH-MRC-LCV                  #4     276,215               772           628,035               977
+DGH-MRC-LCV                  #5     276,215               752           628,035               977
+DGH-MRC-LCV                 AVG     276,215               742           628,035               977
+
+MRV                          #1     276,215               272           398,675               146
+MRV                          #2     276,215               266           398,675               146
+MRV                          #3     276,215               265           398,675               146
+MRV                          #4     276,215               271           398,675               146
+MRV                          #5     276,215               264           398,675               146
+MRV                         AVG     276,215               267           398,675               146
+
+DGH                          #1     276,215               923         1,007,691               977
+DGH                          #2     276,215               932         1,007,691               977
+DGH                          #3     276,215               938         1,007,691               977
+DGH                          #4     276,215               952         1,007,691               977
+DGH                          #5     276,215               947         1,007,691               977
+DGH                         AVG     276,215               938         1,007,691               977
+
+LCV                          #1     276,215               546           493,704               469
+LCV                          #2     276,215               546           493,704               469
+LCV                          #3     276,215               552           493,704               469
+LCV                          #4     276,215               573           493,704               469
+LCV                          #5     276,215               551           493,704               469
+LCV                         AVG     276,215               553           493,704               469
+
+Basic                        #1     276,215               815           783,282               534
+Basic                        #2     276,215               829           783,282               534
+Basic                        #3     276,215               823           783,282               534
+Basic                        #4     276,215               902           783,282               534
+Basic                        #5     276,215               864           783,282               534
+Basic                       AVG     276,215               846           783,282               534
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV_Forward_check    #1     276,215               389           370,277                71
+MRV-DGH-LCV_Forward_check    #2     276,215               397           370,277                71
+MRV-DGH-LCV_Forward_check    #3     276,215               387           370,277                71
+MRV-DGH-LCV_Forward_check    #4     276,215               384           370,277                71
+MRV-DGH-LCV_Forward_check    #5     276,215               395           370,277                71
+MRV-DGH-LCV_Forward_check   AVG     276,215               390           370,277                71
+
+DGH-MRC-LCV_Forward_check    #1     276,215               530           421,299               369
+DGH-MRC-LCV_Forward_check    #2     276,215               510           421,299               369
+DGH-MRC-LCV_Forward_check    #3     276,215               544           421,299               369
+DGH-MRC-LCV_Forward_check    #4     276,215               510           421,299               369
+DGH-MRC-LCV_Forward_check    #5     276,215               507           421,299               369
+DGH-MRC-LCV_Forward_check   AVG     276,215               520           421,299               369
+
+MRV_Forward_check            #1     276,215               293           370,277               132
+MRV_Forward_check            #2     276,215               302           370,277               132
+MRV_Forward_check            #3     276,215               297           370,277               132
+MRV_Forward_check            #4     276,215               292           370,277               132
+MRV_Forward_check            #5     276,215               295           370,277               132
+MRV_Forward_check           AVG     276,215               295           370,277               132
+
+DGH_Forward_check            #1     276,215               524           511,870               533
+DGH_Forward_check            #2     276,215               523           511,870               533
+DGH_Forward_check            #3     276,215               614           511,870               533
+DGH_Forward_check            #4     276,215               534           511,870               533
+DGH_Forward_check            #5     276,215               544           511,870               533
+DGH_Forward_check           AVG     276,215               547           511,870               533
+
+LCV_Forward_check            #1     276,215               551           493,704               469
+LCV_Forward_check            #2     276,215               545           493,704               469
+LCV_Forward_check            #3     276,215               550           493,704               469
+LCV_Forward_check            #4     276,215               557           493,704               469
+LCV_Forward_check            #5     276,215               545           493,704               469
+LCV_Forward_check           AVG     276,215               549           493,704               469
+
+Basic_Forward_check          #1     276,215               837           493,704               492
+Basic_Forward_check          #2     276,215               858           493,704               492
+Basic_Forward_check          #3     276,215               856           493,704               492
+Basic_Forward_check          #4     276,215               861           493,704               492
+Basic_Forward_check          #5     276,215               861           493,704               492
+Basic_Forward_check         AVG     276,215               854           493,704               492
+-------------------------------------------------------------------------------------------------
+MRV-DGH-LCV_AC-3             #1     276,215               392           350,910                71
+MRV-DGH-LCV_AC-3             #2     276,215               395           350,910                71
+MRV-DGH-LCV_AC-3             #3     276,215               402           350,910                71
+MRV-DGH-LCV_AC-3             #4     276,215               405           350,910                71
+MRV-DGH-LCV_AC-3             #5     276,215               408           350,910                71
+MRV-DGH-LCV_AC-3            AVG     276,215               400           350,910                71
+
+DGH-MRC-LCV_AC-3             #1     276,215               539           373,566               369
+DGH-MRC-LCV_AC-3             #2     276,215               509           373,566               369
+DGH-MRC-LCV_AC-3             #3     276,215               488           373,566               369
+DGH-MRC-LCV_AC-3             #4     276,215               475           373,566               369
+DGH-MRC-LCV_AC-3             #5     276,215               482           373,566               369
+DGH-MRC-LCV_AC-3            AVG     276,215               498           373,566               369
+
+MRV_AC-3                     #1     276,215               312           350,910               132
+MRV_AC-3                     #2     276,215               310           350,910               132
+MRV_AC-3                     #3     276,215               307           350,910               132
+MRV_AC-3                     #4     276,215               320           350,910               132
+MRV_AC-3                     #5     276,215               313           350,910               132
+MRV_AC-3                    AVG     276,215               312           350,910               132
+
+DGH_AC-3                     #1     276,215               447           392,791               532
+DGH_AC-3                     #2     276,215               433           392,791               532
+DGH_AC-3                     #3     276,215               450           392,791               532
+DGH_AC-3                     #4     276,215               434           392,791               532
+DGH_AC-3                     #5     276,215               457           392,791               532
+DGH_AC-3                    AVG     276,215               444           392,791               532
+
+LCV_AC-3                     #1     276,215               546           387,117               469
+LCV_AC-3                     #2     276,215               523           387,117               469
+LCV_AC-3                     #3     276,215               522           387,117               469
+LCV_AC-3                     #4     276,215               523           387,117               469
+LCV_AC-3                     #5     276,215               538           387,117               469
+LCV_AC-3                    AVG     276,215               530           387,117               469
+
+Basic_AC-3                   #1     276,215               956           387,117               492
+Basic_AC-3                   #2     276,215               912           387,117               492
+Basic_AC-3                   #3     276,215               855           387,117               492
+Basic_AC-3                   #4     276,215               822           387,117               492
+Basic_AC-3                   #5     276,215               818           387,117               492
+Basic_AC-3                  AVG     276,215               872           387,117               492

@@ -1,0 +1,126 @@
+# Test Data 0 (Standard)
+
+## 200 Words
+
+Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Basic                      0                11                17                 5
+DGH-MRC-LCV Basic                      0                79             1,055                63
+MRV Basic                              0                 1                17                 6
+DGH Basic                              0                16             1,141                63
+LCV Basic                              0                 2                33                13
+Basic Basic                            0                 3               171                33
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Forward check              0                 1                 6                 3
+DGH-MRC-LCV Forward check              0                 1                 2                 1
+MRV Forward check                      0                 0                 6                 3
+DGH Forward check                      0                 1                 2                 1
+LCV Forward check                      0                 1                33                13
+Basic Forward check                    0                 1                33                13
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV AC-3                       0                 1                 4                 3
+DGH-MRC-LCV AC-3                       0                 1                 1                 0
+MRV AC-3                               0                 0                 4                 3
+DGH AC-3                               0                 1                 1                 0
+LCV AC-3                               0                 1                 3                 2
+Basic AC-3                             0                 1                 3                 2
+
+## 500 Words
+
+Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Basic                     32                 4               180                11
+DGH-MRC-LCV Basic                     32               118             6,557               159
+MRV Basic                             32                 1               180                17
+DGH Basic                             32                54             7,786               159
+LCV Basic                             32                 9               375                62
+Basic Basic                           32                12             1,757                91
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Forward check             32                 8               108                 7
+DGH-MRC-LCV Forward check             32                11               120                12
+MRV Forward check                     32                 3               108                 8
+DGH Forward check                     32                 6               124                15
+LCV Forward check                     32                20               375                62
+Basic Forward check                   32                23               375                63
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV AC-3                      32                 6                63                 7
+DGH-MRC-LCV AC-3                      32                 5                51                11
+MRV AC-3                              32                 4                63                 8
+DGH AC-3                              32                13                51                14
+LCV AC-3                              32                 3               183                54
+Basic AC-3                            32                 8               183                54
+
+## 1000 Words
+
+Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Basic                  1,381                18             3,389                27
+DGH-MRC-LCV Basic                  1,381               223            29,396               325
+MRV Basic                          1,381                20             3,389                39
+DGH Basic                          1,381               259            41,359               325
+LCV Basic                          1,381                45             4,647               157
+Basic Basic                        1,381                59            16,399               188
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Forward check          1,381                17             2,622                20
+DGH-MRC-LCV Forward check          1,381                65             3,365                67
+MRV Forward check                  1,381                14             2,622                34
+DGH Forward check                  1,381                82             3,716                86
+LCV Forward check                  1,381                37             4,647               157
+Basic Forward check                1,381                66             4,647               161
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV AC-3                   1,381                25             2,027                20
+DGH-MRC-LCV AC-3                   1,381                39             1,980                67
+MRV AC-3                           1,381                15             2,027                33
+DGH AC-3                           1,381                34             1,999                83
+LCV AC-3                           1,381                38             3,000               150
+Basic AC-3                         1,381                55             3,000               153
+
+## 1800 Words
+
+Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Basic                 31,643               133            55,534                48
+DGH-MRC-LCV Basic                 31,643               473           133,959               579
+MRV Basic                         31,643                53            55,534                91
+DGH Basic                         31,643               273           204,730               579
+LCV Basic                         31,643                97            66,662               279
+Basic Basic                       31,643               174           125,715               326
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Forward check         31,643                66            47,714                42
+DGH-MRC-LCV Forward check         31,643               135            56,366               167
+MRV Forward check                 31,643                78            47,714                72
+DGH Forward check                 31,643               206            68,291               261
+LCV Forward check                 31,643               104            66,662               279
+Basic Forward check               31,643               165            66,662               288
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV AC-3                  31,643                86            41,648                42
+DGH-MRC-LCV AC-3                  31,643               196            44,470               167
+MRV AC-3                          31,643                86            41,648                72
+DGH AC-3                          31,643               145            46,253               261
+LCV AC-3                          31,643               107            48,267               279
+Basic AC-3                        31,643               156            48,267               288
+
+## 3000 Words
+
+Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Basic                276,215               364           398,675                73
+DGH-MRC-LCV Basic                276,215             1,036           628,035               977
+MRV Basic                        276,215               307           398,675               146
+DGH Basic                        276,215             1,006         1,007,691               977
+LCV Basic                        276,215               586           493,704               469
+Basic Basic                      276,215               943           783,282               534
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Forward check        276,215               407           370,277                71
+DGH-MRC-LCV Forward check        276,215               505           421,299               369
+MRV Forward check                276,215               291           370,277               132
+DGH Forward check                276,215               515           511,870               533
+LCV Forward check                276,215               558           493,704               469
+Basic Forward check              276,215               825           493,704               492
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV AC-3                 276,215               388           350,910                71
+DGH-MRC-LCV AC-3                 276,215               555           373,566               369
+MRV AC-3                         276,215               307           350,910               132
+DGH AC-3                         276,215               475           392,791               532
+LCV AC-3                         276,215               538           387,117               469
+Basic AC-3                       276,215               803           387,117               492
