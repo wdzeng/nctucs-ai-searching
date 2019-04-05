@@ -1,8 +1,6 @@
 package io.hyperbola.base;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * A variable of the puzzle.
@@ -64,7 +62,8 @@ public final class Variable implements Comparable<Variable> {
                 r.y -= minY;
                 r.neighbors = List.copyOf(r.neighbors);
             });
-            Set<Variable> result = new HashSet<>(varList);
+            List<Variable> result = new ArrayList<>(varList);
+            result.sort(null);
             VariableSurveyResult set = new VariableSurveyResult(result, maxX, maxY);
             discarded = true;
             return set;

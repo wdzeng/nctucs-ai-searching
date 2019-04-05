@@ -26,7 +26,8 @@ public class Main {
     }
 
     private static void task(int dictCount, String outputPath, int varIndex, String title) throws IOException {
-        List<VariableSurveyResult> resList = RuleInflater.inflate(new FileInputStream("res/puzzle.txt"));
+        List<VariableSurveyResult> resList
+                = RuleInflater.inflate(new FileInputStream("res/homework material/puzzle.txt"));
         VariableSurveyResult res = resList.get(varIndex);
 
         Node node;
@@ -34,7 +35,7 @@ public class Main {
         String path = "res/" + outputPath;
         File p = new File(path);
         p.getParentFile().mkdirs();
-        Dictionary dict = new Dictionary(new FileInputStream("res/dict" + dictCount + ".txt"));
+        Dictionary dict = new Dictionary(new FileInputStream("res/revised dictionary/" + dictCount + " words.txt"));
         Expander oDgh = new BasicDegreeHeuristicExpander();
         Expander oMrv = new BasicMinimumRemainingValueExpander();
         Expander oLcv = new BasicLeastConstrainingValueExpander(true);

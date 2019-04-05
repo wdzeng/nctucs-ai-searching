@@ -10,8 +10,8 @@ public class RandomThreeInOneExpander extends ThreeInOneExpander {
     }
 
     @Override
-    protected Comparator<String> wordOrderPolicy() {
-        return null;
+    protected boolean randomSort() {
+        return true;
     }
 
     @Override

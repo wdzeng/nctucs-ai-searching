@@ -20,7 +20,8 @@ public class RandomDegreeHeuristicExpander extends DegreeHeuristicExpander {
         return Selector.random();
     }
 
-    protected Comparator<String> wordOrderPolicy() {
-        return null;
+    @Override
+    protected boolean randomSort() {
+        return true;
     }
 }

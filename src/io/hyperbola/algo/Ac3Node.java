@@ -1,5 +1,8 @@
 package io.hyperbola.algo;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import io.hyperbola.base.Assignment;
 import io.hyperbola.base.Dictionary;
 import io.hyperbola.base.Variable;
@@ -13,10 +16,11 @@ import static java.util.Map.copyOf;
  */
 public class Ac3Node extends AbstractNode {
 
-    private final Assignment assignment;                 // unmodifiable
-    private final List<Assignment> prevAssignments;      // unmodifiable
+    private final Assignment assignment;                              // unmodifiable
+    private final List<Assignment> prevAssignments;                   // unmodifiable
     private final Ac3Node successor;
-    private final Map<Variable, Set<String>> unassigned; // unmodifiable
+    private final Map<Variable, List<String>> unassigned;             // unmodifiable
+    private final Map<Variable, List<Variable>> unassignedNeighbors;  // unmodifiable
     private final int wBoard, hBoard;
 
     /**
@@ -29,7 +33,8 @@ public class Ac3Node extends AbstractNode {
         assignment = null;
         successor = null;
         prevAssignments = List.of();
-        unassigned = createRootMap(varSet, dictionary);
+        unassigned = createRootVarDomainMap(varSet, dictionary);
+        unassignedNeighbors = createRootVarNeighborsMap(varSet);
         wBoard = varSet.boardWidth;
         hBoard = varSet.boardHeight;
     }
@@ -42,22 +47,26 @@ public class Ac3Node extends AbstractNode {
      */
     private Ac3Node(Ac3Node parent, Assignment lastAssignment) {
 
-        Map<Variable, Set<String>> unassignedVarDomainMap = new HashMap<>(parent.unassigned);
+        Map<Variable, List<String>> unassignedVarDomainMap = new HashMap<>(parent.unassigned);
+        Map<Variable, List<Variable>> unassignedVarNeighborsMap = new HashMap<>(parent.unassignedNeighbors);
 
         // Only neighbors of last assigned variable should be checked
         outer:
         while (true) {
-            // Updates the domain
-            updateVarDomainMap(lastAssignment, unassignedVarDomainMap, true);
+            // Updates the domain and neighbors map
+            updateVarDomainAndVarNeighborsMap(lastAssignment,
+                                              unassignedVarDomainMap,
+                                              unassignedVarNeighborsMap,
+                                              true);
             // Checks if any variable with one-item-domain exists
             List<Variable> unassignedVars = new ArrayList<>(unassignedVarDomainMap.keySet());
-            unassignedVars.sort(null);
+            unassignedVars.sort(null); // must be iterated in natural order
             for (Variable v: unassignedVars) {
-                Set<String> domain = unassignedVarDomainMap.get(v);
+                List<String> domain = unassignedVarDomainMap.get(v);
                 if (domain.size() != 1) continue;
                 // Here we found
                 // Builds a medium node
-                parent = new Ac3Node(parent, lastAssignment, unassignedVarDomainMap);
+                parent = new Ac3Node(parent, lastAssignment, unassignedVarDomainMap, unassignedVarNeighborsMap);
                 // Updates the assignment so that the variable-domain map will be updated in the next loop
                 String theOnlyWord = domain.stream().findFirst().get();
                 lastAssignment = new Assignment(theOnlyWord, v);
@@ -70,6 +79,7 @@ public class Ac3Node extends AbstractNode {
 
         successor = parent;
         unassigned = copyOf(unassignedVarDomainMap);
+        unassignedNeighbors = copyOf(unassignedVarNeighborsMap);
         assignment = lastAssignment;
         prevAssignments = appendList(successor.prevAssignments, successor.assignment);
         wBoard = successor.wBoard;
@@ -82,9 +92,13 @@ public class Ac3Node extends AbstractNode {
      * @param lastAssignment         parent node performs this assignment and then generates this node
      * @param unassignedVarDomainMap the updated variable-domain map
      */
-    private Ac3Node(Ac3Node parent, Assignment lastAssignment, Map<Variable, Set<String>> unassignedVarDomainMap) {
+    private Ac3Node(Ac3Node parent,
+                    Assignment lastAssignment,
+                    Map<Variable, List<String>> unassignedVarDomainMap,
+                    Map<Variable, List<Variable>> unassignedVarNeighborsMap) {
         successor = parent;
         unassigned = copyOf(unassignedVarDomainMap);
+        unassignedNeighbors = copyOf(unassignedVarNeighborsMap);
         assignment = lastAssignment;
         prevAssignments = appendList(successor.prevAssignments, successor.assignment);
         wBoard = parent.wBoard;
@@ -94,16 +108,6 @@ public class Ac3Node extends AbstractNode {
     @Override
     public Ac3Node expand(Assignment assignment) {
         return new Ac3Node(this, assignment);
-    }
-
-    @Override
-    public Ac3Node getSuccessor() {
-        return successor;
-    }
-
-    @Override
-    public Map<Variable, Set<String>> getUnassignedVariableDomainMap() {
-        return unassigned;
     }
 
     @Override
@@ -119,5 +123,20 @@ public class Ac3Node extends AbstractNode {
     @Override
     public Assignment getAssignment() {
         return assignment;
+    }
+
+    @Override
+    public Ac3Node getSuccessor() {
+        return successor;
+    }
+
+    @Override
+    public Map<Variable, List<String>> getUnassignedVariableDomainMap() {
+        return unassigned;
+    }
+
+    @Override
+    public Map<Variable, List<Variable>> getUnassignedVariableNeighborsMap() {
+        return unassignedNeighbors;
     }
 }

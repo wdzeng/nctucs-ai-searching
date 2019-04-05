@@ -2,7 +2,6 @@ package io.hyperbola.algo;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import io.hyperbola.base.Assignment;
 import io.hyperbola.base.Dictionary;
 import io.hyperbola.base.Variable;
@@ -17,7 +16,8 @@ public class BasicNode extends AbstractNode {
     private final Assignment assignment;
     private final List<Assignment> prevAssignments;
     private final BasicNode successor;
-    private final Map<Variable, Set<String>> unassigned;
+    private final Map<Variable, List<String>> unassigned;
+    private final Map<Variable, List<Variable>> unassignedNeighbors;
     private final int wBoard, hBoard;
     private final boolean forwardCheck;
 
@@ -34,7 +34,8 @@ public class BasicNode extends AbstractNode {
         wBoard = varSet.boardWidth;
         hBoard = varSet.boardHeight;
         prevAssignments = List.of();
-        unassigned = createRootMap(varSet, dictionary);
+        unassigned = createRootVarDomainMap(varSet, dictionary);
+        unassignedNeighbors = createRootVarNeighborsMap(varSet);
         forwardCheck = requireForwardCheck;
     }
 
@@ -44,11 +45,16 @@ public class BasicNode extends AbstractNode {
      * @param lastAssignment successor performs such assignment and then generates this node
      */
     private BasicNode(BasicNode parent, Assignment lastAssignment) {
-        Map<Variable, Set<String>> unassignedVarDomainMap = new HashMap<>(parent.unassigned);
-        updateVarDomainMap(lastAssignment, unassignedVarDomainMap, parent.forwardCheck);
+        Map<Variable, List<String>> unassignedVarDomainMap = new HashMap<>(parent.unassigned);
+        Map<Variable, List<Variable>> unassignedVarNeighborsMap = new HashMap<>(parent.unassignedNeighbors);
+        updateVarDomainAndVarNeighborsMap(lastAssignment,
+                                          unassignedVarDomainMap,
+                                          unassignedVarNeighborsMap,
+                                          parent.forwardCheck);
         successor = parent;
         assignment = lastAssignment;
         unassigned = copyOf(unassignedVarDomainMap);
+        unassignedNeighbors = copyOf(unassignedVarNeighborsMap);
         prevAssignments = appendList(successor.prevAssignments, successor.assignment);
         wBoard = successor.wBoard;
         hBoard = successor.hBoard;
@@ -66,8 +72,13 @@ public class BasicNode extends AbstractNode {
     }
 
     @Override
-    public Map<Variable, Set<String>> getUnassignedVariableDomainMap() {
+    public Map<Variable, List<String>> getUnassignedVariableDomainMap() {
         return unassigned;
+    }
+
+    @Override
+    public Map<Variable, List<Variable>> getUnassignedVariableNeighborsMap() {
+        return unassignedNeighbors;
     }
 
     @Override

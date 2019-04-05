@@ -32,7 +32,7 @@ public class BasicLeastConstrainingValueExpander extends LeastConstrainingValueE
     }
 
     @Override
-    protected Comparator<String> wordOrderPolicy() {
-        return Comparator.naturalOrder();
+    protected boolean randomSort() {
+        return false;
     }
 }

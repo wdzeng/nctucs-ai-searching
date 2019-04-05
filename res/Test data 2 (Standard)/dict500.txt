@@ -1,0 +1,24 @@
+Dict 500
+
+Searching algorithm            Solutions         Time (ms)             Steps    Max stack size
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Basic                    159                17               772                20
+DGH-MRC-LCV Basic                    159                53             2,602                76
+MRV Basic                            159                 9               773                33
+DGH Basic                            159             1,381           180,586               173
+LCV Basic                            159                44             2,159                75
+Basic Basic                          159                45             8,832                93
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV Forward check            159                 6               469                13
+DGH-MRC-LCV Forward check            159                15               891                67
+MRV Forward check                    159                 3               470                21
+DGH Forward check                    159               133             1,028                81
+LCV Forward check                    159                21             2,159                75
+Basic Forward check                  159                30             2,159                80
+----------------------------------------------------------------------------------------------
+MRV-DGH-LCV AC-3                     159                10               330                13
+DGH-MRC-LCV AC-3                     159                 9               397                64
+MRV AC-3                             159                 2               330                21
+DGH AC-3                             159                61               571                66
+LCV AC-3                             159                17             1,017                73
+Basic AC-3                           159                44             1,017                77

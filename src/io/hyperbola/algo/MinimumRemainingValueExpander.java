@@ -1,5 +1,7 @@
 package io.hyperbola.algo;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import io.hyperbola.base.Assignment;
 import io.hyperbola.base.Variable;
 import io.hyperbola.stream.Filterer;
@@ -21,21 +23,15 @@ public abstract class MinimumRemainingValueExpander implements Expander {
     /** A filter than always filter variables having minimum count of domains. */
     public static final Filterer<Variable> MINIMUM_REMAINING_VALUE_FILTER = (candidates, successor) -> {
         List<Variable> elects = new ArrayList<>();
-        // First gets the domains of candidates
-        Map<Variable, Set<String>> varDomainMap = new HashMap<>(successor.getUnassignedVariableDomainMap());
+        int minDomainSize = Integer.MAX_VALUE, domainSize;
         for (Variable v: candidates) {
-            if (!candidates.contains(v)) varDomainMap.remove(v);
-        }
-        // Then finds those having smallest domain
-        int nVal = Integer.MAX_VALUE, n;
-        for (Map.Entry<Variable, Set<String>> entry: varDomainMap.entrySet()) {
-            n = entry.getValue().size();
-            if (n > nVal) continue;
-            if (n < nVal) {
-                nVal = n;
+            domainSize = successor.getDomainSizeOf(v);
+            if (domainSize > minDomainSize) continue;
+            if (domainSize < minDomainSize) {
+                minDomainSize = domainSize;
                 elects.clear();
             }
-            elects.add(entry.getKey());
+            elects.add(v);
         }
         return elects;
     };
@@ -47,12 +43,12 @@ public abstract class MinimumRemainingValueExpander implements Expander {
                                                       .then(findElect())                             // Step (2)
                                                       .select(unassignedVars, successor);
         if (elect == null) return List.of();
-        return Expander.matchWords(elect, successor.getDomainByVariable(elect), wordOrderPolicy());  // Step (3)
+        return Expander.matchWords(elect, successor.getDomainOf(elect), randomSort());  // Step (3)
     }
 
     /** Step (2): If more than one variables are picked in step (1), elect the final one by some method. */
     protected abstract Selector<Variable> findElect();
 
     /** Step (3): Sorts all possible words in some order. */
-    protected abstract Comparator<String> wordOrderPolicy();
+    protected abstract boolean randomSort();
 }

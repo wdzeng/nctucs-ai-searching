@@ -27,7 +27,7 @@ public class RandomLeastConstrainingValueExpander extends LeastConstrainingValue
     }
 
     @Override
-    protected Comparator<String> wordOrderPolicy() {
-        return null;
+    protected boolean randomSort() {
+        return true;
     }
 }

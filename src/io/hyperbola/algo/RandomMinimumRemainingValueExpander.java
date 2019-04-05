@@ -1,7 +1,6 @@
 package io.hyperbola.algo;
-import java.util.Comparator;
-import io.hyperbola.stream.Selector;
 import io.hyperbola.base.Variable;
+import io.hyperbola.stream.Selector;
 
 /**
  * This expander tries to implement MRV algorithm. It selects a variable by the following steps:
@@ -23,7 +22,7 @@ public class RandomMinimumRemainingValueExpander extends MinimumRemainingValueEx
 
     /** Step (3): Sorts all possible words randomly. */
     @Override
-    protected Comparator<String> wordOrderPolicy() {
-        return null;
+    protected boolean randomSort() {
+        return true;
     }
 }

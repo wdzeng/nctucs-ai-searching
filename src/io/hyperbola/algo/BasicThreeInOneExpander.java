@@ -1,5 +1,4 @@
 package io.hyperbola.algo;
-import java.util.Comparator;
 import io.hyperbola.base.Variable;
 import io.hyperbola.stream.Selector;
 
@@ -10,8 +9,8 @@ public class BasicThreeInOneExpander extends ThreeInOneExpander {
     }
 
     @Override
-    protected Comparator<String> wordOrderPolicy() {
-        return Comparator.naturalOrder();
+    protected boolean randomSort() {
+        return false;
     }
 
     @Override

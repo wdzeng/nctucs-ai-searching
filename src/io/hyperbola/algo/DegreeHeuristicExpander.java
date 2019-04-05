@@ -23,10 +23,9 @@ public abstract class DegreeHeuristicExpander implements Expander {
     /** A filter that always filter variables having most unassigned neighbors. */
     public static final Filterer<Variable> DEGREE_HEURISTIC_FILTER = (candidates, successor) -> {
         int max = -1, nUnassignedNeighbor;
-        Collection<Variable> unassignedVars = successor.getUnassignedVariables();
         List<Variable> passed = new ArrayList<>();
         for (Variable v: candidates) {
-            nUnassignedNeighbor = getUnassignedNeighborCount(v, unassignedVars);
+            nUnassignedNeighbor = successor.getCountOfUnassignedNeighborsOf(v);
             if (nUnassignedNeighbor < max) {
                 continue;
             }
@@ -39,19 +38,6 @@ public abstract class DegreeHeuristicExpander implements Expander {
         return passed;
     };
 
-    /**
-     * Queries the count of unassigned neighbor of a given variable.
-     * @param checkedVar     variable to be checked
-     * @param unassignedVars all unassigned variables in the puzzle
-     * @return the count of unassigned neighbor of a given variable
-     */
-    private static int getUnassignedNeighborCount(Variable checkedVar, Collection<Variable> unassignedVars) {
-        return (int) checkedVar.getNeighbors()
-                               .stream()
-                               .filter(unassignedVars::contains)
-                               .count();
-    }
-
     @Override
     public final List<Assignment> assign(Node successor) {
 
@@ -60,12 +46,12 @@ public abstract class DegreeHeuristicExpander implements Expander {
                                                       .then(findElect())                  // Step (2)
                                                       .select(unassignedVars, successor);
         if (elect == null) return List.of();
-        return Expander.matchWords(elect, successor.getDomainByVariable(elect), wordOrderPolicy());    // Step (3)
+        return Expander.matchWords(elect, successor.getDomainOf(elect), randomSort());    // Step (3)
     }
 
     /** Step (2): Determines the only elected variable within candidates. */
     protected abstract Selector<Variable> findElect();
 
     /** Step (3): Sorts all possible words in some order. */
-    protected abstract Comparator<String> wordOrderPolicy();
+    protected abstract boolean randomSort();
 }

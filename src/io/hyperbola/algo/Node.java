@@ -59,12 +59,20 @@ public interface Node {
      */
     Board getBoard();
 
+    default int getCountOfUnassignedNeighborsOf(Variable variable) {
+        return getUnassignedNeighborsOf(variable).size();
+    }
+
     /**
      * Queries the domain of a given unassigned variable.
      * @return the domain; or null if the variable is already assigned.
      */
-    default Set<String> getDomainByVariable(Variable variable) {
+    default List<String> getDomainOf(Variable variable) {
         return getUnassignedVariableDomainMap().get(variable);
+    }
+
+    default int getDomainSizeOf(Variable variable) {
+        return getDomainOf(variable).size();
     }
 
     /**
@@ -73,15 +81,21 @@ public interface Node {
      */
     Node getSuccessor();
 
+    default List<Variable> getUnassignedNeighborsOf(Variable variable) {
+        return getUnassignedVariableNeighborsMap().get(variable);
+    }
+
     /**
      * Queries the variable-domain map.
      */
-    Map<Variable, Set<String>> getUnassignedVariableDomainMap();
+    Map<Variable, List<String>> getUnassignedVariableDomainMap();
+
+    Map<Variable, List<Variable>> getUnassignedVariableNeighborsMap();
 
     /**
      * Queries all unassigned variables.
      */
-    default Collection<Variable> getUnassignedVariables() {
+    default Set<Variable> getUnassignedVariables() {
         return getUnassignedVariableDomainMap().keySet();
     }
 

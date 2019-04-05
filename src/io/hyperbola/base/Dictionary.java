@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.stream.Collectors;
+import static java.util.stream.Collectors.toList;
 
 public final class Dictionary {
 
-    private Map<Integer, Set<String>> dict;
+    private Map<Integer, List<String>> dict; // All words are sorted A-Z
 
     public Dictionary(InputStream in) throws IOException {
         List<String> wordList = new ArrayList<>();
@@ -29,14 +31,14 @@ public final class Dictionary {
             s = map.computeIfAbsent(readed.length(), k -> new HashSet<>());
             s.add(readed.toUpperCase());
         }
+        dict = new HashMap<>(map.size());
         for (Map.Entry<Integer, Set<String>> e: map.entrySet()) {
-            e.setValue(Set.copyOf(e.getValue()));
+            dict.put(e.getKey(), e.getValue().stream().sorted().collect(toList()));
         }
-        dict = Map.copyOf(map);
     }
 
-    public Set<String> getWordsByLength(int length) {
-        Set<String> s = dict.get(length);
-        return s == null? Set.of(): s;
+    public List<String> getWordsByLength(int length) {
+        List<String> s = dict.get(length);
+        return s == null? List.of(): s;
     }
 }

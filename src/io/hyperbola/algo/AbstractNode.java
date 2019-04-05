@@ -3,7 +3,9 @@ import java.util.*;
 import io.hyperbola.base.Dictionary;
 import io.hyperbola.base.*;
 import static io.hyperbola.base.Variable.HORIZONTAL;
-import static java.util.stream.Collectors.toSet;
+import static java.util.List.copyOf;
+import static java.util.Map.copyOf;
+import static java.util.stream.Collectors.toList;
 
 /**
  * This class is an implementation of the {@link Node} interface.
@@ -20,7 +22,7 @@ public abstract class AbstractNode implements Node {
         List<T> merged = new ArrayList<>(former.size() + 1);
         merged.addAll(former);
         merged.add(latter);
-        return List.copyOf(merged);
+        return copyOf(merged);
     }
 
     /**
@@ -29,39 +31,68 @@ public abstract class AbstractNode implements Node {
      * @param dictionary revised dictionary used to build the variable-domain map
      * @return an initial variable-domain map
      */
-    protected static Map<Variable, Set<String>> createRootMap(VariableSurveyResult varSet, Dictionary dictionary) {
-        Map<Variable, Set<String>> initMap = new HashMap<>(varSet.variables.size());
+    protected static Map<Variable, List<String>> createRootVarDomainMap(VariableSurveyResult varSet,
+                                                                        Dictionary dictionary) {
+        Map<Variable, List<String>> initMap = new HashMap<>(varSet.variables.size());
         for (Variable v: varSet.variables) {
             initMap.put(v, dictionary.getWordsByLength(v.length()));
         }
-        return initMap;
+        return copyOf(initMap);
     }
 
     /**
      * Given the variable-domain map and an assignment, updating the map.
-     * @param map                   variable-domain map
+     * @param domainMap             variable-domain map
      * @param requireNonEmptyDomain set to true to ensure the domains in the resulting map are all non-empty.
      * @throws EmptyDomainException when requireNonEmptyDomain is set to true and an empty domain is found
      */
-    protected static void updateVarDomainMap(Assignment assignment,
-                                             Map<Variable, Set<String>> map,
-                                             boolean requireNonEmptyDomain) {
-        assert map.containsKey(assignment.variable);
-        map.remove(assignment.variable);
-        Set<String> domain;
+    protected static void updateVarDomainAndVarNeighborsMap(Assignment assignment,
+                                                            Map<Variable, List<String>> domainMap,
+                                                            Map<Variable, List<Variable>> neighborsMap,
+                                                            boolean requireNonEmptyDomain) {
+        Variable assignedVar = assignment.variable;
+        assert domainMap.containsKey(assignedVar);
+        assert neighborsMap.containsKey(assignedVar);
+
+        List<String> domain;
+        List<Variable> updatedNeighborList;
         IntersectJudger j;
-        for (Variable u: assignment.variable.getNeighbors()) {
-            domain = map.get(u);
-            if (domain == null) continue;  // Already assigned variable
-            j = new IntersectJudger(u, assignment.variable, assignment.word);
+        for (Variable n: neighborsMap.get(assignedVar)) {
+
+            // Update the domain
+            domain = domainMap.get(n);
+            j = new IntersectJudger(n, assignedVar, assignment.word);
             domain = domain.stream()
                            .filter(j::judge)
-                           .collect(toSet());
+                           .collect(toList());
             if (requireNonEmptyDomain && domain.isEmpty()) {
                 throw new EmptyDomainException();
             }
-            map.put(u, Set.copyOf(domain));
+            domainMap.put(n, copyOf(domain));
+
+            // Update the neighbors
+            updatedNeighborList = new ArrayList<>(neighborsMap.get(n));
+            assert updatedNeighborList.contains(assignedVar);
+            updatedNeighborList.remove(assignedVar);
+            neighborsMap.put(n, updatedNeighborList);
         }
+
+        domainMap.remove(assignedVar);
+        neighborsMap.remove(assignedVar);
+    }
+
+    protected static void updateVarNeighborsMap(Assignment assignment, Map<Variable, List<Variable>> map) {
+        Variable assigned = assignment.variable;
+        for (Variable n: assigned.getNeighbors()) {
+            map.get(n).remove(assigned);
+        }
+    }
+
+    protected static Map<Variable, List<Variable>> createRootVarNeighborsMap(VariableSurveyResult varSet) {
+        Collection<Variable> vars = varSet.variables;
+        Map<Variable, List<Variable>> map = new HashMap<>(vars.size());
+        for (Variable v: vars) map.put(v, v.getNeighbors());
+        return copyOf(map);
     }
 
     @Override

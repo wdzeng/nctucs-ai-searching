@@ -44,12 +44,12 @@ public abstract class ThreeInOneExpander implements Expander {
                                                       .select(unassignedVars, successor);
         if (elect == null) return List.of();
         // Step (4)
-        Collection<String> wordCandidates = successor.getDomainByVariable(elect);
-        List<String> wordsInLcvOrder = lcv(elect, wordCandidates, successor, wordOrderPolicy());
-        return Expander.matchWords(elect, wordsInLcvOrder);
+        List<String> wordCandidates = successor.getDomainOf(elect);
+        List<String> wordsInLcvOrder = lcv(elect, wordCandidates, successor, randomSort());
+        return Expander.matchWords(elect, wordsInLcvOrder, randomSort());
     }
 
-    protected abstract Comparator<String> wordOrderPolicy();
+    protected abstract boolean randomSort();
 
     protected abstract Selector<Variable> findElect();
 }

@@ -24,7 +24,7 @@ public class BasicMinimumRemainingValueExpander extends MinimumRemainingValueExp
 
     /** Step (3): Sorts all possible words alphabetically. */
     @Override
-    protected Comparator<String> wordOrderPolicy() {
-        return Comparator.naturalOrder();
+    protected boolean randomSort() {
+        return false;
     }
 }

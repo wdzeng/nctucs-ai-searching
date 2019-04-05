@@ -11,25 +11,12 @@ import static java.util.stream.Collectors.toList;
 @FunctionalInterface
 public interface Expander {
 
-    /**
-     * Generates offspring of a given node.
-     */
-    default List<? extends Node> expand(Node node) {
-        List<Assignment> asgList = assign(node);
-        List<Node> expanded = new ArrayList<>();
-        for (Assignment a: asgList) {
-            try {expanded.add(node.expand(a));}
-            catch (EmptyDomainException ignored) {}
-        }
-        return expanded;
+    static List<Assignment> matchWords(Variable assignedVar, Collection<String> words, boolean random) {
+        if (random) return matchWordsRandomly(assignedVar, words);
+        return words.stream()
+                    .map(str -> new Assignment(str, assignedVar))
+                    .collect(toList());
     }
-
-    /**
-     * Determines the next assignments and returns the ordered results.
-     * @param successor node about to be expanded
-     * @return a list of assignment, or an empty list if this node is not expandable.
-     */
-    List<Assignment> assign(Node successor);
 
     /**
      * Converts words to assignments by given elected variable. Words are sorted randomly.
@@ -44,37 +31,36 @@ public interface Expander {
                    .collect(toList());
     }
 
-    /**
-     * Converts words to assignments by given elected variable. Words ares sorted by given comparator.
-     * @param assignedVar    variable to be assigned
-     * @param words          revised dictionary
-     * @param wordComparator sorting policy
-     */
-    static List<Assignment> matchWords(Variable assignedVar,
-                                       Collection<String> words,
-                                       Comparator<String> wordComparator) {
-        if (assignedVar == null) return List.of();
-        if (wordComparator == null) return matchWordsRandomly(assignedVar, words);
-        return words.stream()
-                    .sorted(wordComparator)
-                    .map(str -> new Assignment(str, assignedVar))
-                    .collect(toList());
-    }
-
-    /**
-     * Converts words to assignments by given elected variable.
-     * @param assignedVar variable to be assigned
-     * @param words       revised dictionary
-     */
-    static List<Assignment> matchWords(Variable assignedVar, Collection<String> words) {
-        return words.stream()
-                    .map(str -> new Assignment(str, assignedVar))
-                    .collect(toList());
+    /** Randomly selects a variable from a collection. */
+    static Variable randomSelect(List<Variable> candidates) {
+        int index = (int) (Math.random() * candidates.size());
+        return candidates.get(index);
     }
 
     /** Randomly selects a variable from a collection. */
     static Variable randomSelect(Collection<Variable> candidates) {
-        int index = (int) (Math.random() * candidates.size());
-        return List.copyOf(candidates).get(index);
+        int num = (int) (Math.random() * candidates.size());
+        for (Variable v: candidates) if (--num < 0) return v;
+        throw new InternalError(); // Never happens
+    }
+
+    /**
+     * Determines the next assignments and returns the ordered results.
+     * @param successor node about to be expanded
+     * @return a list of assignment, or an empty list if this node is not expandable.
+     */
+    List<Assignment> assign(Node successor);
+
+    /**
+     * Generates offspring of a given node.
+     */
+    default List<? extends Node> expand(Node node) {
+        List<Assignment> asgList = assign(node);
+        List<Node> expanded = new ArrayList<>();
+        for (Assignment a: asgList) {
+            try {expanded.add(node.expand(a));}
+            catch (EmptyDomainException ignored) {}
+        }
+        return expanded;
     }
 }

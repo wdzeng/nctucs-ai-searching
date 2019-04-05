@@ -12,6 +12,6 @@ public class RandomExpander implements Expander {
     public List<Assignment> assign(Node successor) {
         Variable elected = Expander.randomSelect(successor.getUnassignedVariables());
         if (elected == null) return List.of();
-        return Expander.matchWordsRandomly(elected, successor.getDomainByVariable(elected));
+        return Expander.matchWordsRandomly(elected, successor.getDomainOf(elected));
     }
 }
