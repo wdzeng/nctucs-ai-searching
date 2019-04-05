@@ -21,7 +21,7 @@ public interface Expander {
     /**
      * Converts words to assignments by given elected variable. Words are sorted randomly.
      * @param assignedVar variable to be assigned
-     * @param words       revised dictionary
+     * @param words       dictionary
      */
     static List<Assignment> matchWordsRandomly(Variable assignedVar, Collection<String> words) {
         List<String> copy = new ArrayList<>(words);

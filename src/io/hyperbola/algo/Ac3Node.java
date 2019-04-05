@@ -27,7 +27,7 @@ public class Ac3Node extends AbstractNode {
      * Creates a root node using AC-3. Dictionary must be given so that the variable-domain map can be built. Variable
      * survey result must be given so the node knows the size of board so that it can build it.
      * @param varSet     variables and board dimensions data
-     * @param dictionary revised dictionary to be used
+     * @param dictionary dictionary to be used
      */
     public Ac3Node(VariableSurveyResult varSet, Dictionary dictionary) {
         assignment = null;

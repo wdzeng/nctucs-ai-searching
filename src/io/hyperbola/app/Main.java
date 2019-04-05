@@ -40,7 +40,7 @@ public class Main {
         String path = "res/" + outputPath;
         File p = new File(path);
         p.getParentFile().mkdirs();
-        Dictionary dict = new Dictionary(new FileInputStream("res/revised dictionary/" + dictCount + " words.txt"));
+        Dictionary dict = new Dictionary(new FileInputStream("res/dictionary/" + dictCount + " words.txt"));
         Expander oDgh = new BasicDegreeHeuristicExpander();
         Expander oMrv = new BasicMinimumRemainingValueExpander();
         Expander oLcv = new BasicLeastConstrainingValueExpander(true);

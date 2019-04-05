@@ -27,6 +27,7 @@ acknowledge
 acquire
 across
 act
+action
 active
 activist
 activity
@@ -116,11 +117,9 @@ angry
 animal
 anniversary
 announce
-announced
 annual
 another
 answer
-antagonized
 anticipate
 anxiety
 any
@@ -137,7 +136,6 @@ apparently
 appeal
 appear
 appearance
-appeared
 apple
 application
 apply
@@ -150,9 +148,7 @@ approval
 approve
 approximately
 architect
-are
 area
-areas
 argue
 argument
 arise
@@ -167,13 +163,11 @@ arrival
 arrive
 art
 article
-artificial
 artist
 artistic
 as
 aside
 ask
-asked
 asleep
 aspect
 assault
@@ -198,7 +192,6 @@ atmosphere
 attach
 attack
 attempt
-attempted
 attend
 attention
 attitude
@@ -255,7 +248,6 @@ because
 become
 bed
 bedroom
-been
 beer
 before
 begin
@@ -282,7 +274,6 @@ between
 beyond
 big
 bike
-bilateral
 bill
 billion
 bind
@@ -349,7 +340,6 @@ buck
 budget
 build
 building
-built
 bullet
 bunch
 burden
@@ -456,8 +446,6 @@ city
 civil
 civilian
 claim
-claimed
-claims
 class
 classic
 classroom
@@ -485,7 +473,6 @@ coalition
 coast
 coat
 code
-coercive
 coffee
 cognitive
 cold
@@ -513,7 +500,6 @@ commit
 commitment
 committee
 common
-commonly
 communicate
 communication
 community
@@ -532,7 +518,6 @@ complex
 complicated
 component
 compose
-composed
 composition
 comprehensive
 computer
@@ -541,7 +526,6 @@ concentration
 concept
 concern
 concerned
-concerns
 concert
 conclude
 conclusion
@@ -564,7 +548,6 @@ consequence
 conservative
 consider
 considerable
-considerably
 consideration
 consist
 consistent
@@ -575,7 +558,6 @@ constitutional
 construct
 construction
 consultant
-consultation
 consume
 consumer
 consumption
@@ -623,7 +605,6 @@ council
 counselor
 count
 counter
-countries
 country
 county
 couple
@@ -743,7 +724,6 @@ detail
 detailed
 detect
 determine
-determined
 develop
 developing
 development
@@ -763,7 +743,6 @@ digital
 dimension
 dining
 dinner
-diplomacy
 direct
 direction
 directly
@@ -787,7 +766,6 @@ dismiss
 disorder
 display
 dispute
-disputed
 distance
 distant
 distinct
@@ -814,7 +792,6 @@ doubt
 down
 downtown
 dozen
-dozens
 draft
 drag
 drama
@@ -1075,7 +1052,6 @@ flame
 flat
 flavor
 flee
-fleet
 flesh
 flight
 float
@@ -1083,7 +1059,6 @@ floor
 flow
 flower
 fly
-flying
 focus
 folk
 follow
@@ -1185,7 +1160,6 @@ gold
 golden
 golf
 good
-google
 government
 governor
 grab
@@ -1220,7 +1194,6 @@ gun
 guy
 habit
 habitat
-had
 hair
 half
 hall
@@ -1232,7 +1205,6 @@ happen
 happy
 hard
 hardly
-has
 hat
 hate
 have
@@ -1306,7 +1278,6 @@ huge
 human
 humor
 hundred
-hundreds
 hungry
 hunter
 hunting
@@ -1345,7 +1316,6 @@ impressive
 improve
 improvement
 in
-inauguration
 incentive
 incident
 include
@@ -1361,7 +1331,7 @@ indeed
 independence
 independent
 index
-indian
+Indian
 indicate
 indication
 individual
@@ -1399,7 +1369,6 @@ intelligence
 intend
 intense
 intensity
-intent
 intention
 interaction
 interest
@@ -1411,7 +1380,6 @@ interpret
 interpretation
 intervention
 interview
-intimidation
 into
 introduce
 introduction
@@ -1427,9 +1395,7 @@ involve
 involved
 involvement
 iron
-is
 island
-islands
 issue
 it
 item
@@ -1478,7 +1444,6 @@ lack
 lady
 lake
 land
-landed
 landscape
 language
 lap
@@ -1487,7 +1452,6 @@ largely
 last
 late
 later
-latest
 latter
 laugh
 launch
@@ -1552,7 +1516,6 @@ load
 loan
 local
 locate
-located
 location
 lock
 long
@@ -1646,7 +1609,6 @@ meter
 method
 middle
 might
-militarized
 military
 milk
 million
@@ -1692,7 +1654,6 @@ mouse
 mouth
 move
 movement
-moves
 movie
 much
 multiple
@@ -1726,7 +1687,6 @@ necessary
 neck
 need
 negative
-negotiable
 negotiate
 negotiation
 neighbor
@@ -1769,7 +1729,6 @@ now
 nowhere
 nuclear
 number
-numbers
 numerous
 nurse
 nut
@@ -1778,7 +1737,6 @@ objective
 obligation
 observation
 observe
-observed
 observer
 obtain
 obvious
@@ -1849,7 +1807,6 @@ oven
 over
 overall
 overcome
-overlapping
 overlook
 owe
 own
@@ -1911,7 +1868,6 @@ perform
 performance
 perhaps
 period
-periods
 permanent
 permission
 permit
@@ -1966,7 +1922,6 @@ poem
 poet
 poetry
 point
-pointed
 pole
 police
 policy
@@ -1988,7 +1943,6 @@ portrait
 portray
 pose
 position
-positions
 positive
 possess
 possibility
@@ -2081,14 +2035,12 @@ protect
 protection
 protein
 protest
-protests
 proud
 prove
 provide
 provider
 province
 provision
-provoked
 psychological
 psychologist
 psychology
@@ -2104,13 +2056,11 @@ pure
 purpose
 pursue
 push
-pushed
 put
 qualify
 quality
 quarter
 question
-questions
 quick
 quickly
 quiet
@@ -2125,7 +2075,6 @@ radio
 rail
 rain
 raise
-raising
 range
 rank
 rapid
@@ -2138,7 +2087,6 @@ rating
 ratio
 raw
 reach
-reached
 react
 reaction
 read
@@ -2165,13 +2113,11 @@ recording
 recover
 recovery
 recruit
-recurring
 red
 reduce
 reduction
 refer
 reference
-referred
 reflect
 reflection
 reform
@@ -2192,7 +2138,6 @@ reinforce
 reject
 relate
 relation
-relations
 relationship
 relative
 relatively
@@ -2219,7 +2164,6 @@ reporter
 represent
 representation
 representative
-representatives
 reputation
 request
 require
@@ -2244,6 +2188,7 @@ responsible
 rest
 restaurant
 restore
+restriction
 result
 retain
 retire
@@ -2290,7 +2235,6 @@ sacred
 sad
 safe
 safety
-said
 sake
 salad
 salary
@@ -2385,7 +2329,6 @@ shelter
 shift
 shine
 ship
-ships
 shirt
 shit
 shock
@@ -2403,12 +2346,10 @@ shoulder
 shout
 show
 shower
-showing
 shrug
 shut
 sick
 side
-sides
 sigh
 sight
 sign
@@ -2535,7 +2476,6 @@ steady
 steal
 steel
 step
-stern
 stick
 still
 stir
@@ -2556,7 +2496,6 @@ stream
 street
 strength
 strengthen
-strengthening
 stress
 stretch
 strike
@@ -2617,7 +2556,6 @@ survive
 survivor
 suspect
 sustain
-sustained
 swear
 sweep
 sweet
@@ -2630,7 +2568,6 @@ system
 table
 tablespoon
 tactic
-tactics
 tail
 take
 tale
@@ -2738,7 +2675,6 @@ tone
 tongue
 tonight
 too
-took
 tool
 tooth
 top
@@ -2809,7 +2745,6 @@ unable
 uncle
 under
 undergo
-undermine
 understand
 understanding
 unfortunately
@@ -2856,13 +2791,11 @@ version
 versus
 very
 vessel
-vessels
 veteran
 victim
 victory
 video
 view
-viewed
 viewer
 village
 violate
@@ -2893,10 +2826,8 @@ wander
 want
 war
 warm
-warmed
 warn
 warning
-was
 wash
 waste
 watch
@@ -2968,6 +2899,7 @@ wonder
 wonderful
 wood
 wooden
+word
 work
 worker
 workshop
