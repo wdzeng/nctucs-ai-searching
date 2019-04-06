@@ -49,14 +49,33 @@ public final class Board {
         boolean first = true;
         for (int y = 0; y < height; y++) {
             if (first) first = false;
-            else sb.append('\n');
+            else sb.append("\n");
             for (int x = 0; x < width; x++) {
                 char c = sq[index(x, y)];
                 // Convert to full size
-                if (c == 0) sb.append('　');
+                if (c == 0) sb.append("　");
                 else sb.append((char) (c - 'A' + 'Ａ'));
             }
         }
+        return sb.toString();
+    }
+
+    @SuppressWarnings("SpellCheckingInspection")
+    public String toHtml() {
+        StringBuilder sb = new StringBuilder(width * height + height);
+        sb.append("<table class='bd'><tbody>");
+        for (int y = 0; y < height; y++) {
+            sb.append("<tr>");
+            for (int x = 0; x < width; x++) {
+                char c = sq[index(x, y)];
+                // Convert to full size
+                sb.append("<td>");
+                if (c != 0) {sb.append((char) (c - 'A' + 'Ａ'));}
+                sb.append("</td>");
+            }
+            sb.append("</tr>");
+        }
+        sb.append("</tbody></table>");
         return sb.toString();
     }
 

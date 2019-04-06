@@ -20,20 +20,20 @@ import io.hyperbola.stream.Selector;
  */
 public abstract class MinimumRemainingValueExpander implements Expander {
 
-    /** A filter than always filter variables having minimum count of domains. */
+    /** A filter that always selects variables having minimum count of domains. */
     public static final Filterer<Variable> MINIMUM_REMAINING_VALUE_FILTER = (candidates, successor) -> {
-        List<Variable> elects = new ArrayList<>();
+        List<Variable> passed = new ArrayList<>();
         int minDomainSize = Integer.MAX_VALUE, domainSize;
         for (Variable v: candidates) {
             domainSize = successor.peekDomainSizeOf(v);
             if (domainSize > minDomainSize) continue;
             if (domainSize < minDomainSize) {
                 minDomainSize = domainSize;
-                elects.clear();
+                passed.clear();
             }
-            elects.add(v);
+            passed.add(v);
         }
-        return elects;
+        return passed;
     };
 
     @Override

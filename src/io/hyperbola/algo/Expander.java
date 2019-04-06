@@ -45,7 +45,7 @@ public interface Expander {
     }
 
     /**
-     * Determines the next assignments and returns the ordered results.
+     * Determines the next assignments and returns the ordered data.
      * @param successor node about to be expanded
      * @return a list of assignment, or an empty list if this node is not expandable.
      */

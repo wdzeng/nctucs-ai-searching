@@ -25,7 +25,7 @@ public abstract class AbstractNode implements Node {
 
     /**
      * Given all variables and the dictionary, creating an initial variable-domain map.
-     * @param varSet     this survey result contains all variables
+     * @param varSet     this survey data contains all variables
      * @param dictionary dictionary used to build the variable-domain map
      * @return an initial variable-domain map
      */

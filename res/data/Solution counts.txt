@@ -1,0 +1,4 @@
+Test data #1 has 276215 solutions.
+Test data #2 has 10538886 solutions.
+Test data #3 has 7326632 solutions.
+Test data #4 has 75325712 solutions.

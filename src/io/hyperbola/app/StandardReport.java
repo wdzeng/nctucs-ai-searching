@@ -8,7 +8,7 @@ import io.hyperbola.base.VariableSurveyResult;
 import static io.hyperbola.algo.ThreeInOneExpander.DGH_MRV_LCV;
 import static io.hyperbola.algo.ThreeInOneExpander.MRV_DGH_LCV;
 
-public class Main {
+public class StandardReport {
 
     private static PrintWriter pw;
 
@@ -17,13 +17,13 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        int[] dss = {200, 500, 1000, 1800, 3000};
+        int[] dss = {3000};
         List<VariableSurveyResult> vsrList
                 = RuleInflater.inflate(new FileInputStream("res/homework material/puzzle.txt"));
-        for (int i = 1; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             VariableSurveyResult vsr = vsrList.get(i);
-            String title = "Test Data " + (i + 1) + " (Standard)";
-            String path = "res/results/" + title + ".txt";
+            String title = "Test Data " + (i+1) + " (Solutions)";
+            String path = "res/data/" + title + ".txt1";
             pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(path)));
             println("# " + title);
             println("");
@@ -59,10 +59,10 @@ public class Main {
                               "Solutions",
                               "Time (ms)",
                               "Steps",
-                              "Spms",
+                              "S/T",
                               "Max stack size"));
-        bar();
 
+        bar();
         node = new BasicNode(vsr, dict, false);
         testName = "";
         test("MRV-DGH-LCV " + testName, node, oMrvDghLcv);
@@ -72,8 +72,6 @@ public class Main {
         test("MRV " + testName, node, oMrv);
         println("");
         test("DGH " + testName, node, oDgh);
-        println("");
-        test("LCV " + testName, node, oLcv);
         println("");
         test("Basic " + testName, node, oBsc);
 
@@ -117,20 +115,20 @@ public class Main {
             long start = System.currentTimeMillis();
             while (s.nextSolution()) solCount++;
             long end = System.currentTimeMillis();
-            end -=start;
+            end -= start;
             String output = String.format("%-28s%3s%12s%18s%18s%9s%18s",
                                           title,
-                                          "# " + i,
+                                          "#" + String.format("%02d", i),
                                           NumberFormat.getNumberInstance().format(solCount),
                                           NumberFormat.getNumberInstance().format(end),
                                           NumberFormat.getNumberInstance().format(s.step()),
-                                          NumberFormat.getNumberInstance().format(end/s.step()),
+                                          end == 0 ? "Infinity" : NumberFormat.getNumberInstance().format(s.step() / end),
                                           NumberFormat.getNumberInstance().format(s.maxStackSize()));
             println(output);
             nSol += solCount;
             nStep += s.step();
             maxStackSize += s.maxStackSize();
-            time += (end - start);
+            time += end;
         }
         String output = String.format("%-28s%3s%12s%18s%18s%9s%18s",
                                       title,
@@ -138,7 +136,7 @@ public class Main {
                                       NumberFormat.getNumberInstance().format(nSol / 5),
                                       NumberFormat.getNumberInstance().format(time / 5),
                                       NumberFormat.getNumberInstance().format(nStep / 5),
-                                      NumberFormat.getNumberInstance().format(time/nStep),
+                                      NumberFormat.getNumberInstance().format(time / nStep),
                                       NumberFormat.getNumberInstance().format(maxStackSize / 5));
         println(output);
     }

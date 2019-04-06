@@ -22,7 +22,7 @@ public class BasicNode extends AbstractNode {
 
     /**
      * Creates a root node. Dictionary must be given so that the variable-domain map can be built. Variable survey
-     * result must be given so the node knows the size of board so that it can build it.
+     * data must be given so the node knows the size of board so that it can build it.
      * @param varSet              variables and board dimensions data
      * @param dictionary          dictionary to be used
      * @param requireForwardCheck set to true to enables forward checking in its offspring nodes

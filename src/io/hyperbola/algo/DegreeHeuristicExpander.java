@@ -19,7 +19,7 @@ import io.hyperbola.stream.Selector;
  */
 public abstract class DegreeHeuristicExpander implements Expander {
 
-    /** A filter that always filter variables having most unassigned neighbors. */
+    /** A filter that always selects variables having most unassigned neighbors. */
     public static final Filterer<Variable> DEGREE_HEURISTIC_FILTER = (candidates, successor) -> {
         int max = -1, nUnassignedNeighbor;
         List<Variable> passed = new ArrayList<>();
